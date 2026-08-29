@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Portada por defecto para cualquier obra que no tenga imagen propia.
+    Úsalo como android:src en los ImageView de portada (item_book_card,
+    work-details, preview de create-work) o desde Kotlin con
+    setImageResource(R.drawable.placeholder_cover).
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/bg_placeholder_cover" />
+    <item
+        android:width="56dp"
+        android:height="56dp"
+        android:gravity="center"
+        android:drawable="@drawable/ic_placeholder_mark" />
+</layer-list>

@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "com.attor.app-mergeDebugResources-37:/layout/item_book_card.xml",
+        "source": "com.attor.app-main-40:/layout/item_book_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\fragment_create_work.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\fragment_create_work.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\item_book_card.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\item_book_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\fragment_search.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\fragment_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\activity_work_details.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\activity_work_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\fragment_notifications.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\fragment_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\fragment_library.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\fragment_library.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\item_chapter.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\item_chapter.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\item_notification.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\item_notification.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-mergeDebugResources-37:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\USER\\.gradle\\daemon\\9.3.0\\com.attor.app-main-40:\\layout\\activity_main.xml"
+    }
+]

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla: BIBLIOTECA
+    Rol INVITADO: acceso restringido -> se recomienda mostrar layoutGuestLock
+    en lugar del contenido, ya que la biblioteca guarda progreso/favoritos
+    ligados a una cuenta.
+    Rol USUARIO: contenido normal con tabs y grid de obras guardadas.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/library_title"
+        android:textColor="@color/text_primary"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Contenido normal (USUARIO) -->
+    <LinearLayout
+        android:id="@+id/layoutLibraryContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/chipLibAll"
+                    style="@style/ChipUnselected"
+                    android:text="@string/library_tab_all" />
+
+                <TextView
+                    android:id="@+id/chipLibReading"
+                    style="@style/ChipSelected"
+                    android:text="@string/library_tab_reading" />
+
+                <TextView
+                    android:id="@+id/chipLibFinished"
+                    style="@style/ChipUnselected"
+                    android:text="@string/library_tab_finished" />
+
+                <TextView
+                    android:id="@+id/chipLibFavorites"
+                    style="@style/ChipUnselected"
+                    android:text="@string/library_tab_favorites" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLibrary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
+            tools:listitem="@layout/item_book_card"
+            tools:spanCount="2" />
+    </LinearLayout>
+
+    <!-- Bloqueo para INVITADO: se muestra/oculta por código según el rol -->
+    <LinearLayout
+        android:id="@+id/layoutGuestLock"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:contentDescription="@null"
+            android:src="@android:drawable/ic_lock_lock"
+            app:tint="@color/text_hint" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/guest_login_required_title"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="32dp"
+            android:gravity="center"
+            android:text="@string/guest_login_required_message"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnGuestGoLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_button_primary"
+            android:paddingHorizontal="24dp"
+            android:text="@string/login_button"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>

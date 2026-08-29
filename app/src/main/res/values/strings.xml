@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Attor</string>
+
+    <!-- Login -->
+    <string name="login_title">Attor</string>
+    <string name="login_email_hint">Correo electrónico</string>
+    <string name="login_password_hint">Contraseña</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="login_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="login_no_account">¿No tienes cuenta? </string>
+    <string name="login_register">Regístrate</string>
+    <string name="login_or">o continúa con</string>
+    <string name="login_guest">Continuar como invitado</string>
+
+    <!-- Bottom nav -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_search">Buscar</string>
+    <string name="nav_create">Crear</string>
+    <string name="nav_library">Biblioteca</string>
+    <string name="nav_notifications">Notificaciones</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Hola, %1$s</string>
+    <string name="home_continue_reading">Sigue leyendo</string>
+    <string name="home_see_all">Ver todo</string>
+    <string name="home_trending">Tendencias de la semana</string>
+
+    <!-- Search -->
+    <string name="search_title">Explorar</string>
+    <string name="search_hint">Buscar mundos, historias, personajes…</string>
+    <string name="search_popular">Popular ahora</string>
+    <string name="filter_all">Todo</string>
+    <string name="filter_novels">Novelas</string>
+    <string name="filter_books">Libros</string>
+    <string name="filter_comics">Cómics</string>
+    <string name="filter_music">Música</string>
+    <string name="filter_podcast">Podcast</string>
+
+    <!-- Work details -->
+    <string name="work_status_progress">Libro · En emisión</string>
+    <string name="work_synopsis_title">Sinopsis</string>
+    <string name="work_index_title">Índice de Capítulos</string>
+    <string name="work_start_reading">Empezar a Leer</string>
+    <string name="work_tab_details">Detalles</string>
+    <string name="work_tab_chapters">Capítulos</string>
+    <!--<string name="work_tab_comments">Comentarios</string>-->
+
+    <!-- Library -->
+    <string name="library_title">Biblioteca</string>
+    <string name="library_tab_all">Todos</string>
+    <string name="library_tab_reading">Leyendo</string>
+    <string name="library_tab_finished">Terminados</string>
+    <string name="library_tab_favorites">Favoritos</string>
+
+    <!-- Notifications -->
+    <string name="notifications_title">Notificaciones</string>
+    <string name="notifications_mark_read">Marcar todo</string>
+
+    <!-- Create work -->
+    <string name="create_title">Crear Obra</string>
+    <string name="create_cover_label">Portada de la obra</string>
+    <string name="create_title_hint">Título</string>
+    <string name="create_synopsis_hint">Sinopsis / Descripción</string>
+    <string name="create_format_label">Formato</string>
+    <string name="create_genre_label">Géneros (selecciona hasta 3)</string>
+    <string name="create_language_label">Idioma original</string>
+    <string name="create_publish_button">Publicar Obra</string>
+
+    <!-- Formats -->
+    <string name="format_novel">Novela</string>
+    <string name="format_manga">Manga</string>
+    <string name="format_manhua">Manhua</string>
+    <string name="format_comic">Cómic</string>
+    <string name="format_book">Libro</string>
+    <string name="format_music">Música</string>
+    <string name="format_podcast">Podcast</string>
+
+    <!-- Roles / Guest -->
+    <string name="guest_login_required_title">Inicia sesión para continuar</string>
+    <string name="guest_login_required_message">Necesitas una cuenta para crear e interactuar con historias. Los invitados solo pueden leer contenido.</string>
+</resources>

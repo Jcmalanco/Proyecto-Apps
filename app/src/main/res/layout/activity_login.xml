@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla: LOGIN
+    Rol: acceso para USUARIO registrado.
+    Incluye botón "Continuar como invitado" -> lleva directo a MainActivity
+    en modo INVITADO (sin token de sesión), donde solo se habilita lectura.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:fillViewport="true"
+    tools:context=".LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/bg_button_primary"
+            android:contentDescription="@string/app_name"
+            android:padding="16dp"
+            android:src="@android:drawable/ic_menu_edit"
+            app:tint="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/txtAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/login_title"
+            android:textColor="@color/text_primary"
+            android:textSize="26sp"
+            app:layout_constraintTop_toBottomOf="@id/imgLogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Campo Email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:autofillHints="emailAddress"
+            android:background="@drawable/bg_input_field"
+            android:hint="@string/login_email_hint"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@id/txtAppName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Campo Contraseña -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:autofillHints="password"
+            android:background="@drawable/bg_input_field"
+            android:hint="@string/login_password_hint"
+            android:inputType="textPassword"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@id/etEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/txtForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/login_forgot_password"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            app:layout_constraintTop_toBottomOf="@id/etPassword"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Botón iniciar sesión -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_button_primary"
+            android:elevation="0dp"
+            android:text="@string/login_button"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/txtForgotPassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Link registro -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/btnLogin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_no_account"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_register"
+                android:textColor="@color/accent_red"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtOr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/login_or"
+            android:textColor="@color/text_hint"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/txtRegister"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Botones sociales -->
+
+        <!-- Acceso como invitado (ROL: INVITADO) -->
+        <LinearLayout
+            android:id="@+id/layoutSocial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="508dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtOr">
+
+            <Button
+                android:id="@+id/btnGoogle"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_outline"
+                android:text="Google"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btnApple"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_outline"
+                android:text="Apple"
+                android:textAllCaps="false"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtGuestAccess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="16dp"
+            android:padding="8dp"
+            android:text="@string/login_guest"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/layoutSocial"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

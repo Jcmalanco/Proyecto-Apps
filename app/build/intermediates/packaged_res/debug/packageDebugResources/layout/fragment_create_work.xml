@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla: CREAR OBRA
+    Rol INVITADO: NO tiene acceso a esta pantalla. El ítem "nav_create" del
+    bottom nav debe ocultarse o, si se llega por deep link, redirigir a
+    activity_login.xml mostrando el mensaje "guest_login_required_*".
+    Rol USUARIO: puede publicar Novela, Manga, Manhua, Libro, Cómic,
+    Música o Podcast usando el mismo formulario (selector de formato).
+-->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_title"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Portada -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/create_cover_label"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <FrameLayout
+            android:id="@+id/btnPickCover"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_card_rounded">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@android:drawable/ic_menu_gallery"
+                app:tint="@color/text_hint" />
+        </FrameLayout>
+
+        <!-- Título -->
+        <EditText
+            android:id="@+id/etWorkTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="@string/create_title_hint"
+            android:inputType="text"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:textSize="15sp" />
+
+        <!-- Sinopsis -->
+        <EditText
+            android:id="@+id/etWorkSynopsis"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_input_field"
+            android:gravity="top|start"
+            android:hint="@string/create_synopsis_hint"
+            android:inputType="textMultiLine"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:textSize="14sp" />
+
+        <!-- Selector de formato: Novela, Manga, Manhua, Libro, Cómic, Música, Podcast -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/create_format_label"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/layoutFormats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/formatNovel"
+                    style="@style/ChipUnselected"
+                    android:text="@string/format_novel" />
+
+                <TextView
+                    android:id="@+id/formatManga"
+                    style="@style/ChipUnselected"
+                    android:text="@string/format_manga" />
+
+                <TextView
+                    android:id="@+id/formatManhua"
+                    style="@style/ChipUnselected"
+                    android:text="@string/format_manhua" />
+
+                <TextView
+                    android:id="@+id/formatComic"
+                    style="@style/ChipSelected"
+                    android:text="@string/format_comic" />
+
+                <TextView
+                    android:id="@+id/formatBook"
+                    style="@style/ChipUnselected"
+                    android:text="@string/format_book" />
+
+                <TextView
+                    android:id="@+id/formatMusic"
+                    style="@style/ChipUnselected"
+                    android:text="@string/format_music" />
+
+                <TextView
+                    android:id="@+id/formatPodcast"
+                    style="@style/ChipUnselected"
+                    android:text="@string/format_podcast" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Géneros -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/create_genre_label"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/layoutGenres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:chipSpacingHorizontal="8dp"
+            app:singleLine="false">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/genreAventura"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Aventura"
+                android:textColor="@color/white"
+                app:chipBackgroundColor="@color/accent_red" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/genreFantasia"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Fantasía"
+                android:textColor="@color/white"
+                app:chipBackgroundColor="@color/accent_red" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/genreArte"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arte"
+                android:textColor="@color/text_secondary"
+                app:chipBackgroundColor="@color/chip_unselected" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/genreTerror"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Terror"
+                android:textColor="@color/text_secondary"
+                app:chipBackgroundColor="@color/chip_unselected" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Idioma -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/create_language_label"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <Spinner
+            android:id="@+id/spinnerLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input_field"
+            android:spinnerMode="dropdown" />
+
+        <!-- Publicar -->
+        <Button
+            android:id="@+id/btnPublish"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_button_primary"
+            android:text="@string/create_publish_button"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

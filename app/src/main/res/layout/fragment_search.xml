@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Pantalla: SEARCH / EXPLORAR
+    Rol INVITADO y USUARIO: ambos pueden buscar y filtrar libremente.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_title"
+        android:textColor="@color/text_primary"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Barra de búsqueda -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_input_field"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@null"
+            android:src="@android:drawable/ic_menu_search"
+            app:tint="@color/text_hint" />
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/search_hint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Filtros de formato -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/layoutFilters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chipAll"
+                style="@style/ChipSelected"
+                android:text="@string/filter_all" />
+
+            <TextView
+                android:id="@+id/chipNovels"
+                style="@style/ChipUnselected"
+                android:text="@string/filter_novels" />
+
+            <TextView
+                android:id="@+id/chipBooks"
+                style="@style/ChipUnselected"
+                android:text="@string/filter_books" />
+
+            <TextView
+                android:id="@+id/chipComics"
+                style="@style/ChipUnselected"
+                android:text="@string/filter_comics" />
+
+            <TextView
+                android:id="@+id/chipMusic"
+                style="@style/ChipUnselected"
+                android:text="@string/filter_music" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/search_popular"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Grid de resultados -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearchResults"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        tools:listitem="@layout/item_book_card"
+        tools:spanCount="2" />
+
+</LinearLayout>

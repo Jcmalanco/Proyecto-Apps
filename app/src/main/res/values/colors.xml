@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fondos -->
+    <color name="background_primary">#121216</color>
+    <color name="background_secondary">#1B1B21</color>
+    <color name="surface_card">#232329</color>
+    <color name="surface_input">#26262E</color>
+
+    <!-- Acento -->
+    <color name="accent_red">#E63950</color>
+    <color name="accent_red_dark">#C22C40</color>
+
+    <!-- Texto -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#9A9AA5</color>
+    <color name="text_hint">#6C6C76</color>
+
+    <!-- Utilidad -->
+    <color name="divider">#2E2E36</color>
+    <color name="chip_unselected">#2A2A32</color>
+    <color name="star_gold">#F5B942</color>
+    <color name="overlay_dark">#CC000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>
