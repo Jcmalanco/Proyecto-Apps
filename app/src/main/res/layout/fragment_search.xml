@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Pantalla: SEARCH / EXPLORAR
-    Rol INVITADO y USUARIO: ambos pueden buscar y filtrar libremente.
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -22,7 +18,6 @@
         android:textSize="22sp"
         android:textStyle="bold" />
 
-    <!-- Barra de búsqueda -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,7 +48,7 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <!-- Filtros de formato -->
+    <!-- Filtros: se generan por código (uno por WorkFormat + "Todo") para no repetir XML -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,33 +59,7 @@
             android:id="@+id/layoutFilters"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/chipAll"
-                style="@style/ChipSelected"
-                android:text="@string/filter_all" />
-
-            <TextView
-                android:id="@+id/chipNovels"
-                style="@style/ChipUnselected"
-                android:text="@string/filter_novels" />
-
-            <TextView
-                android:id="@+id/chipBooks"
-                style="@style/ChipUnselected"
-                android:text="@string/filter_books" />
-
-            <TextView
-                android:id="@+id/chipComics"
-                style="@style/ChipUnselected"
-                android:text="@string/filter_comics" />
-
-            <TextView
-                android:id="@+id/chipMusic"
-                style="@style/ChipUnselected"
-                android:text="@string/filter_music" />
-        </LinearLayout>
+            android:orientation="horizontal" />
     </HorizontalScrollView>
 
     <TextView
@@ -102,7 +71,6 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
-    <!-- Grid de resultados -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSearchResults"
         android:layout_width="match_parent"

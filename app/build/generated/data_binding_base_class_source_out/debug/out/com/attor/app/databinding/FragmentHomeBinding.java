@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.attor.app.R;
@@ -20,42 +20,42 @@ import java.lang.String;
 
 public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
-  private final NestedScrollView rootView;
+  private final SwipeRefreshLayout rootView;
 
   @NonNull
   public final ImageView imgAvatar;
 
   @NonNull
-  public final RecyclerView rvContinueReading;
+  public final LinearLayout layoutCategorySections;
 
   @NonNull
-  public final RecyclerView rvTrending;
+  public final RecyclerView rvContinueReading;
 
   @NonNull
   public final LinearLayout sectionContinueReading;
 
   @NonNull
-  public final TextView txtSeeAll;
+  public final SwipeRefreshLayout swipeRefresh;
 
   @NonNull
   public final TextView txtUserName;
 
-  private FragmentHomeBinding(@NonNull NestedScrollView rootView, @NonNull ImageView imgAvatar,
-      @NonNull RecyclerView rvContinueReading, @NonNull RecyclerView rvTrending,
-      @NonNull LinearLayout sectionContinueReading, @NonNull TextView txtSeeAll,
+  private FragmentHomeBinding(@NonNull SwipeRefreshLayout rootView, @NonNull ImageView imgAvatar,
+      @NonNull LinearLayout layoutCategorySections, @NonNull RecyclerView rvContinueReading,
+      @NonNull LinearLayout sectionContinueReading, @NonNull SwipeRefreshLayout swipeRefresh,
       @NonNull TextView txtUserName) {
     this.rootView = rootView;
     this.imgAvatar = imgAvatar;
+    this.layoutCategorySections = layoutCategorySections;
     this.rvContinueReading = rvContinueReading;
-    this.rvTrending = rvTrending;
     this.sectionContinueReading = sectionContinueReading;
-    this.txtSeeAll = txtSeeAll;
+    this.swipeRefresh = swipeRefresh;
     this.txtUserName = txtUserName;
   }
 
   @Override
   @NonNull
-  public NestedScrollView getRoot() {
+  public SwipeRefreshLayout getRoot() {
     return rootView;
   }
 
@@ -86,15 +86,15 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.rvContinueReading;
-      RecyclerView rvContinueReading = ViewBindings.findChildViewById(rootView, id);
-      if (rvContinueReading == null) {
+      id = R.id.layoutCategorySections;
+      LinearLayout layoutCategorySections = ViewBindings.findChildViewById(rootView, id);
+      if (layoutCategorySections == null) {
         break missingId;
       }
 
-      id = R.id.rvTrending;
-      RecyclerView rvTrending = ViewBindings.findChildViewById(rootView, id);
-      if (rvTrending == null) {
+      id = R.id.rvContinueReading;
+      RecyclerView rvContinueReading = ViewBindings.findChildViewById(rootView, id);
+      if (rvContinueReading == null) {
         break missingId;
       }
 
@@ -104,11 +104,7 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.txtSeeAll;
-      TextView txtSeeAll = ViewBindings.findChildViewById(rootView, id);
-      if (txtSeeAll == null) {
-        break missingId;
-      }
+      SwipeRefreshLayout swipeRefresh = (SwipeRefreshLayout) rootView;
 
       id = R.id.txtUserName;
       TextView txtUserName = ViewBindings.findChildViewById(rootView, id);
@@ -116,8 +112,9 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((NestedScrollView) rootView, imgAvatar, rvContinueReading,
-          rvTrending, sectionContinueReading, txtSeeAll, txtUserName);
+      return new FragmentHomeBinding((SwipeRefreshLayout) rootView, imgAvatar,
+          layoutCategorySections, rvContinueReading, sectionContinueReading, swipeRefresh,
+          txtUserName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

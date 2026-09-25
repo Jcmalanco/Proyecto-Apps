@@ -1,19 +1,30 @@
 package com.attor.app.data
 
-/** Los 7 tipos de contenido que se pueden crear y leer en Attor. */
-enum class WorkFormat(val displayName: String) {
-    NOVEL("Novela"),
-    MANGA("Manga"),
-    MANHUA("Manhua"),
-    BOOK("Libro"),
-    COMIC("Cómic"),
-    MUSIC("Música"),
-    PODCAST("Podcast")
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+/** Las 8 categorías de contenido que se pueden crear y leer en Attor. */
+enum class WorkFormat(val displayNameRes: String) {
+    NOVEL("Novelas"),
+    MANGA("Mangas"),
+    MANHUA("Manhuas"),
+    COMIC("Cómics"),
+    BOOK("Libros"),
+    MUSIC("Canciones"),
+    PODCAST("Podcast"),
+    ART("Arte");
+
+    val displayName: String get() = displayNameRes
 }
 
-/** Representa una obra (novela, manga, cómic, álbum musical, podcast, etc.). */
+/**
+ * Representa una obra (novela, manga, cómic, canción, podcast, etc.).
+ * Es tanto el modelo de dominio como la entidad de Room: se guarda tal cual
+ * en la tabla "works" de la base de datos local.
+ */
+@Entity(tableName = "works")
 data class Work(
-    val id: String,
+    @PrimaryKey val id: String,
     val title: String,
     val author: String,
     val rating: Float,
@@ -21,7 +32,11 @@ data class Work(
     val synopsis: String = "",
     val readsLabel: String = "",
     val statusLabel: String = "En emisión",
-    val coverUrl: String? = null
+    val coverUrl: String? = null,
+    /** true si la publicó un usuario desde "Crear Obra" (no es del catálogo de ejemplo). */
+    val isUserCreated: Boolean = false,
+    /** Nombre del usuario dueño de la obra (para "Mis obras" en el Perfil). */
+    val ownerName: String? = null
 )
 
 /** Un capítulo/episodio dentro del índice de una obra. */

@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Pantalla: CREAR OBRA
-    Rol INVITADO: NO tiene acceso a esta pantalla. El ítem "nav_create" del
-    bottom nav debe ocultarse o, si se llega por deep link, redirigir a
-    activity_login.xml mostrando el mensaje "guest_login_required_*".
-    Rol USUARIO: puede publicar Novela, Manga, Manhua, Libro, Cómic,
-    Música o Podcast usando el mismo formulario (selector de formato).
--->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -31,7 +23,6 @@
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <!-- Portada -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,7 +36,7 @@
             android:layout_width="120dp"
             android:layout_height="160dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/bg_card_rounded">
+            android:background="@drawable/placeholder_cover">
 
             <ImageView
                 android:layout_width="28dp"
@@ -53,10 +44,9 @@
                 android:layout_gravity="center"
                 android:contentDescription="@null"
                 android:src="@android:drawable/ic_menu_gallery"
-                app:tint="@color/text_hint" />
+                app:tint="@color/white" />
         </FrameLayout>
 
-        <!-- Título -->
         <EditText
             android:id="@+id/etWorkTitle"
             android:layout_width="match_parent"
@@ -69,7 +59,6 @@
             android:textColorHint="@color/text_hint"
             android:textSize="15sp" />
 
-        <!-- Sinopsis -->
         <EditText
             android:id="@+id/etWorkSynopsis"
             android:layout_width="match_parent"
@@ -83,7 +72,6 @@
             android:textColorHint="@color/text_hint"
             android:textSize="14sp" />
 
-        <!-- Selector de formato: Novela, Manga, Manhua, Libro, Cómic, Música, Podcast -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,6 +80,7 @@
             android:textColor="@color/text_secondary"
             android:textSize="12sp" />
 
+        <!-- Chips de formato: se generan por código con los 8 WorkFormat -->
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,46 +91,9 @@
                 android:id="@+id/layoutFormats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/formatNovel"
-                    style="@style/ChipUnselected"
-                    android:text="@string/format_novel" />
-
-                <TextView
-                    android:id="@+id/formatManga"
-                    style="@style/ChipUnselected"
-                    android:text="@string/format_manga" />
-
-                <TextView
-                    android:id="@+id/formatManhua"
-                    style="@style/ChipUnselected"
-                    android:text="@string/format_manhua" />
-
-                <TextView
-                    android:id="@+id/formatComic"
-                    style="@style/ChipSelected"
-                    android:text="@string/format_comic" />
-
-                <TextView
-                    android:id="@+id/formatBook"
-                    style="@style/ChipUnselected"
-                    android:text="@string/format_book" />
-
-                <TextView
-                    android:id="@+id/formatMusic"
-                    style="@style/ChipUnselected"
-                    android:text="@string/format_music" />
-
-                <TextView
-                    android:id="@+id/formatPodcast"
-                    style="@style/ChipUnselected"
-                    android:text="@string/format_podcast" />
-            </LinearLayout>
+                android:orientation="horizontal" />
         </HorizontalScrollView>
 
-        <!-- Géneros -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -197,7 +149,6 @@
                 app:chipBackgroundColor="@color/chip_unselected" />
         </com.google.android.material.chip.ChipGroup>
 
-        <!-- Idioma -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -214,7 +165,6 @@
             android:background="@drawable/bg_input_field"
             android:spinnerMode="dropdown" />
 
-        <!-- Publicar -->
         <Button
             android:id="@+id/btnPublish"
             android:layout_width="match_parent"
@@ -225,6 +175,35 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp" />
+
+        <!-- Feedback visual de éxito: aparece con animación al publicar -->
+        <LinearLayout
+            android:id="@+id/layoutPublishSuccess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card_rounded"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="14dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✓"
+                android:textColor="@color/accent_red"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/create_publish_success"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

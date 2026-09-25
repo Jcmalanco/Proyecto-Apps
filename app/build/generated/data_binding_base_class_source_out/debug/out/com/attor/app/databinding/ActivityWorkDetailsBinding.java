@@ -31,19 +31,16 @@ public final class ActivityWorkDetailsBinding implements ViewBinding {
   public final Button btnStartReading;
 
   @NonNull
+  public final View dividerTabs;
+
+  @NonNull
   public final ImageView imgCoverLarge;
 
   @NonNull
   public final LinearLayout layoutAuthorRow;
 
   @NonNull
-  public final LinearLayout layoutTabs;
-
-  @NonNull
   public final RecyclerView rvChapters;
-
-  @NonNull
-  public final TextView tabDetails;
 
   @NonNull
   public final TextView txtAuthorName;
@@ -67,21 +64,19 @@ public final class ActivityWorkDetailsBinding implements ViewBinding {
   public final TextView txtWorkTitle;
 
   private ActivityWorkDetailsBinding(@NonNull NestedScrollView rootView,
-      @NonNull ImageButton btnBack, @NonNull Button btnStartReading,
+      @NonNull ImageButton btnBack, @NonNull Button btnStartReading, @NonNull View dividerTabs,
       @NonNull ImageView imgCoverLarge, @NonNull LinearLayout layoutAuthorRow,
-      @NonNull LinearLayout layoutTabs, @NonNull RecyclerView rvChapters,
-      @NonNull TextView tabDetails, @NonNull TextView txtAuthorName,
+      @NonNull RecyclerView rvChapters, @NonNull TextView txtAuthorName,
       @NonNull TextView txtIndexTitle, @NonNull TextView txtSynopsisBody,
       @NonNull TextView txtSynopsisTitle, @NonNull TextView txtWorkRating,
       @NonNull TextView txtWorkStatus, @NonNull TextView txtWorkTitle) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnStartReading = btnStartReading;
+    this.dividerTabs = dividerTabs;
     this.imgCoverLarge = imgCoverLarge;
     this.layoutAuthorRow = layoutAuthorRow;
-    this.layoutTabs = layoutTabs;
     this.rvChapters = rvChapters;
-    this.tabDetails = tabDetails;
     this.txtAuthorName = txtAuthorName;
     this.txtIndexTitle = txtIndexTitle;
     this.txtSynopsisBody = txtSynopsisBody;
@@ -130,6 +125,12 @@ public final class ActivityWorkDetailsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.dividerTabs;
+      View dividerTabs = ViewBindings.findChildViewById(rootView, id);
+      if (dividerTabs == null) {
+        break missingId;
+      }
+
       id = R.id.imgCoverLarge;
       ImageView imgCoverLarge = ViewBindings.findChildViewById(rootView, id);
       if (imgCoverLarge == null) {
@@ -142,21 +143,9 @@ public final class ActivityWorkDetailsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.layoutTabs;
-      LinearLayout layoutTabs = ViewBindings.findChildViewById(rootView, id);
-      if (layoutTabs == null) {
-        break missingId;
-      }
-
       id = R.id.rvChapters;
       RecyclerView rvChapters = ViewBindings.findChildViewById(rootView, id);
       if (rvChapters == null) {
-        break missingId;
-      }
-
-      id = R.id.tabDetails;
-      TextView tabDetails = ViewBindings.findChildViewById(rootView, id);
-      if (tabDetails == null) {
         break missingId;
       }
 
@@ -203,9 +192,8 @@ public final class ActivityWorkDetailsBinding implements ViewBinding {
       }
 
       return new ActivityWorkDetailsBinding((NestedScrollView) rootView, btnBack, btnStartReading,
-          imgCoverLarge, layoutAuthorRow, layoutTabs, rvChapters, tabDetails, txtAuthorName,
-          txtIndexTitle, txtSynopsisBody, txtSynopsisTitle, txtWorkRating, txtWorkStatus,
-          txtWorkTitle);
+          dividerTabs, imgCoverLarge, layoutAuthorRow, rvChapters, txtAuthorName, txtIndexTitle,
+          txtSynopsisBody, txtSynopsisTitle, txtWorkRating, txtWorkStatus, txtWorkTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

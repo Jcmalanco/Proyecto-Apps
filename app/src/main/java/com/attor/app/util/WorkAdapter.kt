@@ -1,15 +1,20 @@
 package com.attor.app.util
 
-import com.attor.app.R
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.attor.app.R
 import com.attor.app.data.Work
 import com.attor.app.databinding.ItemBookCardBinding
 
-/** Adaptador reutilizable para grids/listas de obras (home, search, library). */
+/**
+ * Adaptador reutilizable para grids/carruseles de obras (home, search, library, ver todo).
+ * Al extender ListAdapter con DiffUtil, cada vez que llamas a submitList() con una
+ * lista distinta, RecyclerView anima automáticamente lo que se agregó/quitó/movió
+ * (animación de agregar/eliminar sin escribir código extra).
+ */
 class WorkAdapter(
     private val onClick: (Work) -> Unit
 ) : ListAdapter<Work, WorkAdapter.WorkViewHolder>(DIFF_CALLBACK) {
@@ -31,13 +36,15 @@ class WorkAdapter(
         fun bind(work: Work) {
             binding.txtTitle.text = work.title
             binding.txtAuthor.text = work.author
-            binding.txtRating.text = "★ ${work.rating}"
+            binding.txtRating.text = binding.root.context.getString(R.string.rating_format, work.rating)
+            binding.txtFormatBadge.text = work.format.displayName
 
-
+            // Si la obra no tiene portada propia, usamos la portada por defecto.
             if (work.coverUrl.isNullOrBlank()) {
                 binding.imgCover.setImageResource(R.drawable.placeholder_cover)
             } else {
-                binding.txtFormatBadge.text = work.format.displayName
+                // TODO: aquí se cargaría la imagen real cuando se integre Glide/Coil.
+                binding.imgCover.setImageResource(R.drawable.placeholder_cover)
             }
 
             binding.root.setOnClickListener { onClick(work) }

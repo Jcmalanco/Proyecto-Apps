@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,21 +21,6 @@ public final class FragmentSearchBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextView chipAll;
-
-  @NonNull
-  public final TextView chipBooks;
-
-  @NonNull
-  public final TextView chipComics;
-
-  @NonNull
-  public final TextView chipMusic;
-
-  @NonNull
-  public final TextView chipNovels;
-
-  @NonNull
   public final EditText etSearch;
 
   @NonNull
@@ -45,16 +29,9 @@ public final class FragmentSearchBinding implements ViewBinding {
   @NonNull
   public final RecyclerView rvSearchResults;
 
-  private FragmentSearchBinding(@NonNull LinearLayout rootView, @NonNull TextView chipAll,
-      @NonNull TextView chipBooks, @NonNull TextView chipComics, @NonNull TextView chipMusic,
-      @NonNull TextView chipNovels, @NonNull EditText etSearch, @NonNull LinearLayout layoutFilters,
-      @NonNull RecyclerView rvSearchResults) {
+  private FragmentSearchBinding(@NonNull LinearLayout rootView, @NonNull EditText etSearch,
+      @NonNull LinearLayout layoutFilters, @NonNull RecyclerView rvSearchResults) {
     this.rootView = rootView;
-    this.chipAll = chipAll;
-    this.chipBooks = chipBooks;
-    this.chipComics = chipComics;
-    this.chipMusic = chipMusic;
-    this.chipNovels = chipNovels;
     this.etSearch = etSearch;
     this.layoutFilters = layoutFilters;
     this.rvSearchResults = rvSearchResults;
@@ -87,36 +64,6 @@ public final class FragmentSearchBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.chipAll;
-      TextView chipAll = ViewBindings.findChildViewById(rootView, id);
-      if (chipAll == null) {
-        break missingId;
-      }
-
-      id = R.id.chipBooks;
-      TextView chipBooks = ViewBindings.findChildViewById(rootView, id);
-      if (chipBooks == null) {
-        break missingId;
-      }
-
-      id = R.id.chipComics;
-      TextView chipComics = ViewBindings.findChildViewById(rootView, id);
-      if (chipComics == null) {
-        break missingId;
-      }
-
-      id = R.id.chipMusic;
-      TextView chipMusic = ViewBindings.findChildViewById(rootView, id);
-      if (chipMusic == null) {
-        break missingId;
-      }
-
-      id = R.id.chipNovels;
-      TextView chipNovels = ViewBindings.findChildViewById(rootView, id);
-      if (chipNovels == null) {
-        break missingId;
-      }
-
       id = R.id.etSearch;
       EditText etSearch = ViewBindings.findChildViewById(rootView, id);
       if (etSearch == null) {
@@ -135,8 +82,8 @@ public final class FragmentSearchBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSearchBinding((LinearLayout) rootView, chipAll, chipBooks, chipComics,
-          chipMusic, chipNovels, etSearch, layoutFilters, rvSearchResults);
+      return new FragmentSearchBinding((LinearLayout) rootView, etSearch, layoutFilters,
+          rvSearchResults);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

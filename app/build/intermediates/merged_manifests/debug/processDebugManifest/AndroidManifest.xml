@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.attor.app"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -15,6 +15,7 @@
     <uses-permission android:name="com.attor.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
+        android:name="com.attor.app.AttorApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
@@ -25,10 +26,13 @@
         android:theme="@style/Theme.Attor"
         android:usesCleartextTraffic="false" >
 
-        <!-- Punto de entrada: decide si mostrar Login o ir directo como invitado -->
+        <!-- Login: se abre cuando el invitado decide iniciar sesión -->
         <activity
             android:name="com.attor.app.ui.login.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Punto de entrada real de la app: Home con bottom navigation -->
         <activity
             android:name="com.attor.app.ui.main.MainActivity"
             android:exported="true" >
@@ -38,10 +42,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- Detalle de una obra, accesible por invitado y usuario -->
         <activity
             android:name="com.attor.app.ui.workdetails.WorkDetailsActivity"
+            android:exported="false"
+            android:parentActivityName="com.attor.app.ui.main.MainActivity" />
+        <activity
+            android:name="com.attor.app.ui.profile.ProfileActivity"
+            android:exported="false"
+            android:parentActivityName="com.attor.app.ui.main.MainActivity" />
+        <activity
+            android:name="com.attor.app.ui.settings.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName="com.attor.app.ui.profile.ProfileActivity" />
+        <activity
+            android:name="com.attor.app.ui.seeall.SeeAllActivity"
             android:exported="false"
             android:parentActivityName="com.attor.app.ui.main.MainActivity" />
 
@@ -59,6 +73,11 @@
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
         </provider>
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"

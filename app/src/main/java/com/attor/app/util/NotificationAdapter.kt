@@ -11,9 +11,7 @@ class NotificationAdapter(
 ) : RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {
-        val binding = ItemNotificationBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
+        val binding = ItemNotificationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return NotificationViewHolder(binding)
     }
 
@@ -25,7 +23,6 @@ class NotificationAdapter(
 
     inner class NotificationViewHolder(private val binding: ItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(item: NotificationItem) {
             binding.txtNotifMessage.text = item.message
         }

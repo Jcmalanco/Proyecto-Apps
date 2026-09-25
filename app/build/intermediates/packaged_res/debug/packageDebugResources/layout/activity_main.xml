@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    MainActivity: contenedor de fragments (home, search, create, library, notifications)
-    Rol INVITADO: puede navegar a home, search y library (solo lectura).
-    Rol USUARIO: acceso completo, incluyendo "crear" y notificaciones personales.
-
-    Sugerencia de lógica en Kotlin/Java:
-    if (isGuest) { menu.findItem(R.id.nav_create).isVisible = false
-                   menu.findItem(R.id.nav_notifications).isVisible = false }
--->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_primary"
-    tools:context=".MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
@@ -26,13 +17,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!--
+        itemBackground: pastilla roja SOLO en el ítem seleccionado (bg_bottom_nav_item usa
+        state_checked). itemIconTint/itemTextColor: selector de color que se vuelve blanco
+        cuando el ítem está seleccionado (sobre la pastilla roja) -> efecto "invertido".
+    -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_secondary"
-        app:itemIconTint="@color/accent_red"
-        app:itemTextColor="@color/accent_red"
+        android:background="@color/bottom_nav_bg"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        app:itemBackground="@drawable/bg_bottom_nav_item"
+        app:itemIconTint="@color/bottom_nav_content_color"
+        app:itemTextColor="@color/bottom_nav_content_color"
+        app:itemRippleColor="@android:color/transparent"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"

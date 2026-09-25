@@ -2,17 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
+        android:name=".AttorApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Attor"
         android:usesCleartextTraffic="false">
 
-        <!-- Punto de entrada: decide si mostrar Login o ir directo como invitado -->
+        <!-- Login: se abre cuando el invitado decide iniciar sesión -->
         <activity
             android:name=".ui.login.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
+        <!-- Punto de entrada real de la app: Home con bottom navigation -->
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
@@ -22,9 +25,23 @@
             </intent-filter>
         </activity>
 
-        <!-- Detalle de una obra, accesible por invitado y usuario -->
         <activity
             android:name=".ui.workdetails.WorkDetailsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.profile.ProfileActivity" />
+
+        <activity
+            android:name=".ui.seeall.SeeAllActivity"
             android:exported="false"
             android:parentActivityName=".ui.main.MainActivity" />
 

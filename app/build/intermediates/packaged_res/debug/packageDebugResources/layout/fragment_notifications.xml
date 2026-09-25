@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Pantalla: NOTIFICACIONES
-    Rol INVITADO: esta pantalla no debería ser accesible (no tiene cuenta ni
-    actividad social). Ocultar el ítem "nav_notifications" del bottom nav
-    cuando isGuest == true.
-    Rol USUARIO: lista de notificaciones normales.
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"

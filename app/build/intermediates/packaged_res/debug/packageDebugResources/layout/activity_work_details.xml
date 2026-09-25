@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Pantalla: WORK DETAILS
-    Rol INVITADO y USUARIO: ambos pueden ver detalles y leer capítulos.
-    Solo el USUARIO autor puede ver botones de edición (no incluidos en este prototipo).
--->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,21 +6,20 @@
     android:layout_height="match_parent"
     android:background="@color/background_primary"
     android:fillViewport="true"
-    tools:context=".WorkDetailsActivity">
+    tools:context=".ui.workdetails.WorkDetailsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Portada grande con degradado -->
         <ImageView
             android:id="@+id/imgCoverLarge"
             android:layout_width="0dp"
             android:layout_height="320dp"
             android:background="@color/surface_input"
-            android:src="@drawable/placeholder_cover"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_cover"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -52,7 +46,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Título y estado -->
         <TextView
             android:id="@+id/txtWorkTitle"
             android:layout_width="0dp"
@@ -75,14 +68,13 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="20dp"
-            android:text="@string/work_status_progress"
+            android:text="Novela · En emisión"
             android:textColor="@color/text_secondary"
             android:textSize="13sp"
             app:layout_constraintTop_toBottomOf="@id/txtWorkTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Autor y rating -->
         <LinearLayout
             android:id="@+id/layoutAuthorRow"
             android:layout_width="0dp"
@@ -109,47 +101,21 @@
                 android:id="@+id/txtWorkRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="★ 4.9 · 12.4M Lecturas"
+                android:text="★ 4.9"
                 android:textColor="@color/star_gold"
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <!-- Tabs Detalles / Capítulos / Comentarios -->
-        <LinearLayout
-            android:id="@+id/layoutTabs"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="20dp"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            app:layout_constraintTop_toBottomOf="@id/layoutAuthorRow"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <TextView
-                android:id="@+id/tabDetails"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:paddingBottom="8dp"
-                android:text="@string/work_tab_details"
-                android:textColor="@color/accent_red"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
         <View
+            android:id="@+id/dividerTabs"
             android:layout_width="0dp"
             android:layout_height="1dp"
+            android:layout_marginTop="18dp"
             android:background="@color/divider"
-            app:layout_constraintTop_toBottomOf="@id/layoutTabs"
+            app:layout_constraintTop_toBottomOf="@id/layoutAuthorRow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Sinopsis -->
         <TextView
             android:id="@+id/txtSynopsisTitle"
             android:layout_width="wrap_content"
@@ -160,7 +126,7 @@
             android:textColor="@color/text_primary"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/layoutTabs"
+            app:layout_constraintTop_toBottomOf="@id/dividerTabs"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -170,7 +136,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="20dp"
-            android:text="En un mundo donde las almas pueden forjarse como metal, un joven aprendiz descubre un secreto que podría cambiar el destino de todos los reinos."
+            android:text="En un mundo donde las almas pueden forjarse como metal…"
             android:textColor="@color/text_secondary"
             android:textSize="13sp"
             android:lineSpacingExtra="3dp"
@@ -178,7 +144,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Índice de capítulos -->
         <TextView
             android:id="@+id/txtIndexTitle"
             android:layout_width="wrap_content"
@@ -206,7 +171,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Botón empezar a leer -->
         <Button
             android:id="@+id/btnStartReading"
             android:layout_width="0dp"

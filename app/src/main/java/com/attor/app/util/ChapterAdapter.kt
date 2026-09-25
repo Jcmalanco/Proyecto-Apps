@@ -12,9 +12,7 @@ class ChapterAdapter(
 ) : RecyclerView.Adapter<ChapterAdapter.ChapterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChapterViewHolder {
-        val binding = ItemChapterBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
+        val binding = ItemChapterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ChapterViewHolder(binding)
     }
 
@@ -26,7 +24,6 @@ class ChapterAdapter(
 
     inner class ChapterViewHolder(private val binding: ItemChapterBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(chapter: Chapter) {
             binding.txtChapterTitle.text = chapter.title
             binding.txtChapterDate.text = chapter.dateLabel

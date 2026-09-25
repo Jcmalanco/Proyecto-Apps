@@ -3,12 +3,13 @@ package com.attor.app.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import com.attor.app.R
 import com.attor.app.data.SessionManager
 import com.attor.app.databinding.ActivityLoginBinding
+import com.attor.app.ui.common.BaseActivity
 import com.attor.app.ui.main.MainActivity
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var session: SessionManager
@@ -20,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
 
         session = SessionManager(this)
 
-        // Si ya hay una sesión de usuario activa, saltamos directo a Main.
         if (session.isLoggedIn()) {
             goToMain()
             return
@@ -29,7 +29,6 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener { attemptLogin() }
         binding.txtGuestAccess.setOnClickListener { continueAsGuest() }
 
-        // Placeholders de funciones no implementadas en el prototipo.
         binding.txtRegister.setOnClickListener {
             Toast.makeText(this, "Registro próximamente", Toast.LENGTH_SHORT).show()
         }
@@ -55,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
 
         // Prototipo: no hay backend, solo simulamos un login exitoso.
         val userName = email.substringBefore("@").replaceFirstChar { it.uppercase() }
-        session.login(userName)
+        session.login(userName, email)
         goToMain()
     }
 
@@ -66,6 +65,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun goToMain() {
         startActivity(Intent(this, MainActivity::class.java))
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         finish()
     }
 }

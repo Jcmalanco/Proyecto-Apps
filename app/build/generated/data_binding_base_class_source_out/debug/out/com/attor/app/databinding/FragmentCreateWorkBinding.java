@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
@@ -39,27 +38,6 @@ public final class FragmentCreateWorkBinding implements ViewBinding {
   public final EditText etWorkTitle;
 
   @NonNull
-  public final TextView formatBook;
-
-  @NonNull
-  public final TextView formatComic;
-
-  @NonNull
-  public final TextView formatManga;
-
-  @NonNull
-  public final TextView formatManhua;
-
-  @NonNull
-  public final TextView formatMusic;
-
-  @NonNull
-  public final TextView formatNovel;
-
-  @NonNull
-  public final TextView formatPodcast;
-
-  @NonNull
   public final Chip genreArte;
 
   @NonNull
@@ -78,34 +56,29 @@ public final class FragmentCreateWorkBinding implements ViewBinding {
   public final ChipGroup layoutGenres;
 
   @NonNull
+  public final LinearLayout layoutPublishSuccess;
+
+  @NonNull
   public final Spinner spinnerLanguage;
 
   private FragmentCreateWorkBinding(@NonNull NestedScrollView rootView,
       @NonNull FrameLayout btnPickCover, @NonNull Button btnPublish,
-      @NonNull EditText etWorkSynopsis, @NonNull EditText etWorkTitle, @NonNull TextView formatBook,
-      @NonNull TextView formatComic, @NonNull TextView formatManga, @NonNull TextView formatManhua,
-      @NonNull TextView formatMusic, @NonNull TextView formatNovel, @NonNull TextView formatPodcast,
-      @NonNull Chip genreArte, @NonNull Chip genreAventura, @NonNull Chip genreFantasia,
-      @NonNull Chip genreTerror, @NonNull LinearLayout layoutFormats,
-      @NonNull ChipGroup layoutGenres, @NonNull Spinner spinnerLanguage) {
+      @NonNull EditText etWorkSynopsis, @NonNull EditText etWorkTitle, @NonNull Chip genreArte,
+      @NonNull Chip genreAventura, @NonNull Chip genreFantasia, @NonNull Chip genreTerror,
+      @NonNull LinearLayout layoutFormats, @NonNull ChipGroup layoutGenres,
+      @NonNull LinearLayout layoutPublishSuccess, @NonNull Spinner spinnerLanguage) {
     this.rootView = rootView;
     this.btnPickCover = btnPickCover;
     this.btnPublish = btnPublish;
     this.etWorkSynopsis = etWorkSynopsis;
     this.etWorkTitle = etWorkTitle;
-    this.formatBook = formatBook;
-    this.formatComic = formatComic;
-    this.formatManga = formatManga;
-    this.formatManhua = formatManhua;
-    this.formatMusic = formatMusic;
-    this.formatNovel = formatNovel;
-    this.formatPodcast = formatPodcast;
     this.genreArte = genreArte;
     this.genreAventura = genreAventura;
     this.genreFantasia = genreFantasia;
     this.genreTerror = genreTerror;
     this.layoutFormats = layoutFormats;
     this.layoutGenres = layoutGenres;
+    this.layoutPublishSuccess = layoutPublishSuccess;
     this.spinnerLanguage = spinnerLanguage;
   }
 
@@ -160,48 +133,6 @@ public final class FragmentCreateWorkBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.formatBook;
-      TextView formatBook = ViewBindings.findChildViewById(rootView, id);
-      if (formatBook == null) {
-        break missingId;
-      }
-
-      id = R.id.formatComic;
-      TextView formatComic = ViewBindings.findChildViewById(rootView, id);
-      if (formatComic == null) {
-        break missingId;
-      }
-
-      id = R.id.formatManga;
-      TextView formatManga = ViewBindings.findChildViewById(rootView, id);
-      if (formatManga == null) {
-        break missingId;
-      }
-
-      id = R.id.formatManhua;
-      TextView formatManhua = ViewBindings.findChildViewById(rootView, id);
-      if (formatManhua == null) {
-        break missingId;
-      }
-
-      id = R.id.formatMusic;
-      TextView formatMusic = ViewBindings.findChildViewById(rootView, id);
-      if (formatMusic == null) {
-        break missingId;
-      }
-
-      id = R.id.formatNovel;
-      TextView formatNovel = ViewBindings.findChildViewById(rootView, id);
-      if (formatNovel == null) {
-        break missingId;
-      }
-
-      id = R.id.formatPodcast;
-      TextView formatPodcast = ViewBindings.findChildViewById(rootView, id);
-      if (formatPodcast == null) {
-        break missingId;
-      }
-
       id = R.id.genreArte;
       Chip genreArte = ViewBindings.findChildViewById(rootView, id);
       if (genreArte == null) {
@@ -238,6 +169,12 @@ public final class FragmentCreateWorkBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.layoutPublishSuccess;
+      LinearLayout layoutPublishSuccess = ViewBindings.findChildViewById(rootView, id);
+      if (layoutPublishSuccess == null) {
+        break missingId;
+      }
+
       id = R.id.spinnerLanguage;
       Spinner spinnerLanguage = ViewBindings.findChildViewById(rootView, id);
       if (spinnerLanguage == null) {
@@ -245,9 +182,8 @@ public final class FragmentCreateWorkBinding implements ViewBinding {
       }
 
       return new FragmentCreateWorkBinding((NestedScrollView) rootView, btnPickCover, btnPublish,
-          etWorkSynopsis, etWorkTitle, formatBook, formatComic, formatManga, formatManhua,
-          formatMusic, formatNovel, formatPodcast, genreArte, genreAventura, genreFantasia,
-          genreTerror, layoutFormats, layoutGenres, spinnerLanguage);
+          etWorkSynopsis, etWorkTitle, genreArte, genreAventura, genreFantasia, genreTerror,
+          layoutFormats, layoutGenres, layoutPublishSuccess, spinnerLanguage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

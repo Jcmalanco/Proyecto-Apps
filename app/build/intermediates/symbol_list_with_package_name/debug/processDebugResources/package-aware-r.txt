@@ -27,7 +27,11 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim fade_in
+anim fade_out
 anim fragment_fast_out_extra_slow_in
+anim item_animation_fall_down
+anim layout_animation_fall_down
 anim linear_indeterminate_line1_head_interpolator
 anim linear_indeterminate_line1_tail_interpolator
 anim linear_indeterminate_line2_head_interpolator
@@ -43,6 +47,8 @@ anim m3_side_sheet_exit_to_right
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
+anim slide_down_out
+anim slide_up_in
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -1109,6 +1115,7 @@ attr suffixText
 attr suffixTextAppearance
 attr suffixTextColor
 attr suggestionRowLayout
+attr swipeRefreshLayoutProgressSpinnerBackgroundColor
 attr switchMinWidth
 attr switchPadding
 attr switchStyle
@@ -1366,6 +1373,8 @@ color background_material_dark
 color background_material_light
 color background_primary
 color background_secondary
+color bottom_nav_bg
+color bottom_nav_content_color
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -3001,6 +3010,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg_bottom_nav_item
 drawable bg_button_outline
 drawable bg_button_primary
 drawable bg_card_rounded
@@ -3031,6 +3041,7 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_edit_avatar_badge
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3221,6 +3232,7 @@ id bounceEnd
 id bounceStart
 id btnApple
 id btnBack
+id btnGoToLogin
 id btnGoogle
 id btnGuestGoLogin
 id btnLogin
@@ -3242,15 +3254,6 @@ id chain2
 id chains
 id checkbox
 id checked
-id chipAll
-id chipBooks
-id chipComics
-id chipLibAll
-id chipLibFavorites
-id chipLibFinished
-id chipLibReading
-id chipMusic
-id chipNovels
 id chronometer
 id circle_center
 id clear_text
@@ -3295,6 +3298,7 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
+id dividerTabs
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -3340,13 +3344,6 @@ id fixed
 id flip
 id floating
 id forever
-id formatBook
-id formatComic
-id formatManga
-id formatManhua
-id formatMusic
-id formatNovel
-id formatPodcast
 id fragmentContainer
 id fragment_container_view_tag
 id frost
@@ -3377,6 +3374,7 @@ id ignore
 id ignoreRequest
 id image
 id imgAvatar
+id imgAvatarLarge
 id imgCover
 id imgCoverLarge
 id imgLogo
@@ -3394,14 +3392,17 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id layoutAccountOptions
 id layoutAuthorRow
+id layoutCategorySections
 id layoutFilters
 id layoutFormats
 id layoutGenres
 id layoutGuestLock
+id layoutGuestNotice
 id layoutLibraryContent
+id layoutPublishSuccess
 id layoutSocial
-id layoutTabs
 id left
 id leftToRight
 id legacy
@@ -3510,6 +3511,12 @@ id open_search_view_search_prefix
 id open_search_view_status_bar_spacer
 id open_search_view_toolbar
 id open_search_view_toolbar_container
+id optionFontLarge
+id optionFontMedium
+id optionFontSmall
+id optionThemeDark
+id optionThemeLight
+id optionThemeSystem
 id outline
 id outward
 id overshoot
@@ -3541,13 +3548,17 @@ id rightToLeft
 id right_icon
 id right_side
 id rounded
+id rowLogout
+id rowMyWorks
+id rowSettings
 id row_index_key
 id rvChapters
 id rvContinueReading
 id rvLibrary
 id rvNotifications
 id rvSearchResults
-id rvTrending
+id rvSection
+id rvSeeAll
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3611,7 +3622,7 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
-id tabDetails
+id swipeRefresh
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -3666,6 +3677,7 @@ id txtAuthor
 id txtAuthorName
 id txtChapterDate
 id txtChapterTitle
+id txtEmpty
 id txtForgotPassword
 id txtFormatBadge
 id txtGuestAccess
@@ -3673,9 +3685,15 @@ id txtIndexTitle
 id txtMarkAllRead
 id txtNotifMessage
 id txtOr
+id txtProfileEmail
+id txtProfileName
+id txtProfileWorksCount
 id txtRating
 id txtRegister
+id txtSectionEmpty
+id txtSectionTitle
 id txtSeeAll
+id txtSeeAllTitle
 id txtSynopsisBody
 id txtSynopsisTitle
 id txtTitle
@@ -3822,6 +3840,9 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_login
 layout activity_main
+layout activity_profile
+layout activity_see_all
+layout activity_settings
 layout activity_work_details
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3847,6 +3868,7 @@ layout fragment_search
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_book_card
+layout item_carousel_section
 layout item_chapter
 layout item_notification
 layout m3_alert_dialog
@@ -3966,6 +3988,7 @@ string create_format_label
 string create_genre_label
 string create_language_label
 string create_publish_button
+string create_publish_success
 string create_synopsis_hint
 string create_title
 string create_title_hint
@@ -3975,11 +3998,7 @@ string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string filter_all
-string filter_books
-string filter_comics
-string filter_music
-string filter_novels
-string filter_podcast
+string format_art
 string format_book
 string format_comic
 string format_manga
@@ -3991,15 +4010,11 @@ string guest_login_required_message
 string guest_login_required_title
 string hide_bottom_view_on_scroll_behavior
 string home_continue_reading
-string home_greeting
+string home_empty_section
+string home_greeting_format
 string home_see_all
-string home_trending
 string icon_content_description
 string item_view_role_description
-string library_tab_all
-string library_tab_favorites
-string library_tab_finished
-string library_tab_reading
 string library_title
 string login_button
 string login_email_hint
@@ -4122,6 +4137,14 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string profile_guest_message
+string profile_guest_title
+string profile_logout
+string profile_my_works
+string profile_settings
+string profile_title
+string profile_works_count_format
+string rating_format
 string search_hint
 string search_menu_title
 string search_popular
@@ -4129,14 +4152,25 @@ string search_title
 string searchbar_scrolling_view_behavior
 string searchview_clear_text_content_description
 string searchview_navigation_content_description
+string see_all_empty
+string settings_font_label
+string settings_font_large
+string settings_font_medium
+string settings_font_small
+string settings_theme_dark
+string settings_theme_label
+string settings_theme_light
+string settings_theme_system
+string settings_title
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string status_bar_notification_info_overflow
 string work_index_title
 string work_start_reading
-string work_status_progress
+string work_status_format
 string work_synopsis_title
 string work_tab_chapters
+string work_tab_comments
 string work_tab_details
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
@@ -5401,6 +5435,7 @@ styleable State android_id constraints
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable StateListDrawableItem android_drawable
 styleable StateSet defaultState
+styleable SwipeRefreshLayout swipeRefreshLayoutProgressSpinnerBackgroundColor
 styleable SwitchCompat android_textOn android_textOff android_thumb showText splitTrack switchMinWidth switchPadding switchTextAppearance thumbTextPadding thumbTint thumbTintMode track trackTint trackTintMode
 styleable SwitchMaterial useMaterialThemeColors
 styleable TabItem android_icon android_layout android_text

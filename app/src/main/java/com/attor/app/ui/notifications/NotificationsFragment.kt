@@ -14,12 +14,7 @@ import com.attor.app.ui.login.LoginActivity
 import com.attor.app.util.NotificationAdapter
 import com.attor.app.util.SampleData
 
-/**
- * Pantalla de notificaciones. Exclusiva para el rol USUARIO.
- * El ítem del bottom nav ya está oculto para invitados en MainActivity,
- * pero se añade esta guarda extra por si se llega aquí por otra vía
- * (deep link, back stack, etc.).
- */
+/** Pantalla de notificaciones. Exclusiva para el rol USUARIO. */
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null

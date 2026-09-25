@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,18 +24,6 @@ public final class FragmentLibraryBinding implements ViewBinding {
   public final Button btnGuestGoLogin;
 
   @NonNull
-  public final TextView chipLibAll;
-
-  @NonNull
-  public final TextView chipLibFavorites;
-
-  @NonNull
-  public final TextView chipLibFinished;
-
-  @NonNull
-  public final TextView chipLibReading;
-
-  @NonNull
   public final LinearLayout layoutGuestLock;
 
   @NonNull
@@ -46,16 +33,10 @@ public final class FragmentLibraryBinding implements ViewBinding {
   public final RecyclerView rvLibrary;
 
   private FragmentLibraryBinding(@NonNull LinearLayout rootView, @NonNull Button btnGuestGoLogin,
-      @NonNull TextView chipLibAll, @NonNull TextView chipLibFavorites,
-      @NonNull TextView chipLibFinished, @NonNull TextView chipLibReading,
       @NonNull LinearLayout layoutGuestLock, @NonNull LinearLayout layoutLibraryContent,
       @NonNull RecyclerView rvLibrary) {
     this.rootView = rootView;
     this.btnGuestGoLogin = btnGuestGoLogin;
-    this.chipLibAll = chipLibAll;
-    this.chipLibFavorites = chipLibFavorites;
-    this.chipLibFinished = chipLibFinished;
-    this.chipLibReading = chipLibReading;
     this.layoutGuestLock = layoutGuestLock;
     this.layoutLibraryContent = layoutLibraryContent;
     this.rvLibrary = rvLibrary;
@@ -94,30 +75,6 @@ public final class FragmentLibraryBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.chipLibAll;
-      TextView chipLibAll = ViewBindings.findChildViewById(rootView, id);
-      if (chipLibAll == null) {
-        break missingId;
-      }
-
-      id = R.id.chipLibFavorites;
-      TextView chipLibFavorites = ViewBindings.findChildViewById(rootView, id);
-      if (chipLibFavorites == null) {
-        break missingId;
-      }
-
-      id = R.id.chipLibFinished;
-      TextView chipLibFinished = ViewBindings.findChildViewById(rootView, id);
-      if (chipLibFinished == null) {
-        break missingId;
-      }
-
-      id = R.id.chipLibReading;
-      TextView chipLibReading = ViewBindings.findChildViewById(rootView, id);
-      if (chipLibReading == null) {
-        break missingId;
-      }
-
       id = R.id.layoutGuestLock;
       LinearLayout layoutGuestLock = ViewBindings.findChildViewById(rootView, id);
       if (layoutGuestLock == null) {
@@ -136,9 +93,8 @@ public final class FragmentLibraryBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentLibraryBinding((LinearLayout) rootView, btnGuestGoLogin, chipLibAll,
-          chipLibFavorites, chipLibFinished, chipLibReading, layoutGuestLock, layoutLibraryContent,
-          rvLibrary);
+      return new FragmentLibraryBinding((LinearLayout) rootView, btnGuestGoLogin, layoutGuestLock,
+          layoutLibraryContent, rvLibrary);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
