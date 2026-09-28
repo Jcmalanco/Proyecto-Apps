@@ -89,7 +89,7 @@ class CreateWorkFragment : Fragment() {
         binding.layoutFormats.removeAllViews()
         formatChips.clear()
 
-        WorkFormat.values().forEach { format ->
+        WorkFormat.entries.forEach { format ->
             val chip = TextView(requireContext()).apply {
                 text = format.displayName
                 val hPad = requireContext().dpToPx(16)
@@ -145,7 +145,7 @@ class CreateWorkFragment : Fragment() {
             updateChipStyle(chip, chip.isChecked)
             chip.setOnCheckedChangeListener { _, isChecked ->
                 val checkedCount = chips.count { it.isChecked }
-                if (isChecked && checkedCount > maxGenres) {
+                if (isChecked && (checkedCount > maxGenres)) {
                     chip.isChecked = false
                     Toast.makeText(
                         requireContext(), "Puedes elegir máximo $maxGenres géneros", Toast.LENGTH_SHORT

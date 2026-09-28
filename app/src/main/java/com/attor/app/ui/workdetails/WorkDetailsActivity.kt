@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.content.edit
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.attor.app.data.Work
@@ -30,8 +31,8 @@ class WorkDetailsActivity : BaseActivity() {
         val workId = intent.getStringExtra(EXTRA_WORK_ID)
         binding.btnBack.setOnClickListener { finish() }
 
-        val prefs = getSharedPreferences("attor_likes", Context.MODE_PRIVATE)
-        var isLiked = workId != null && prefs.getBoolean("liked_$workId", false)
+        val prefs = getSharedPreferences("attor_likes", MODE_PRIVATE)
+        var isLiked = (workId != null) && prefs.getBoolean("liked_$workId", false)
 
         fun updateLikeIcon() {
             binding.btnLike.setImageResource(
@@ -44,7 +45,7 @@ class WorkDetailsActivity : BaseActivity() {
         binding.btnLike.setOnClickListener {
             if (workId != null) {
                 isLiked = !isLiked
-                prefs.edit().putBoolean("liked_$workId", isLiked).apply()
+                prefs.edit { putBoolean("liked_$workId", isLiked) }
                 updateLikeIcon()
                 val msg = if (isLiked) "¡Obra marcada con estrella!" else "Estrella removida"
                 Toast.makeText(this@WorkDetailsActivity, msg, Toast.LENGTH_SHORT).show()
