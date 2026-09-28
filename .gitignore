@@ -32,3 +32,17 @@ local.properties
 *.user
 *.userprefs
 *.lock
+
+# Android Studio captures
+captures/
+
+# Native build artifacts
+.externalNativeBuild/
+.cxx/
+
+# Signing keys (NEVER commit these)
+*.keystore
+*.jks
+
+# ProGuard rules
+proguard-rules.pro
