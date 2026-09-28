@@ -126,11 +126,23 @@ class CreateWorkFragment : Fragment() {
         }
     }
 
+    private fun updateChipStyle(chip: Chip, isChecked: Boolean) {
+        chip.setChipBackgroundColorResource(
+            if (isChecked) R.color.accent_red else R.color.chip_unselected
+        )
+        chip.setTextColor(
+            ContextCompat.getColor(
+                requireContext(), if (isChecked) R.color.white else R.color.text_secondary
+            )
+        )
+    }
+
     private fun setupGenreLimit() {
         val chips = listOf(
             binding.genreAventura, binding.genreFantasia, binding.genreArte, binding.genreTerror
         )
-        chips.forEach { chip: Chip ->
+        chips.forEach { chip ->
+            updateChipStyle(chip, chip.isChecked)
             chip.setOnCheckedChangeListener { _, isChecked ->
                 val checkedCount = chips.count { it.isChecked }
                 if (isChecked && checkedCount > maxGenres) {
@@ -138,7 +150,9 @@ class CreateWorkFragment : Fragment() {
                     Toast.makeText(
                         requireContext(), "Puedes elegir máximo $maxGenres géneros", Toast.LENGTH_SHORT
                     ).show()
+                    return@setOnCheckedChangeListener
                 }
+                updateChipStyle(chip, isChecked)
             }
         }
     }

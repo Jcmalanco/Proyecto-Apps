@@ -4,7 +4,7 @@
             "outputFile": "com.attor.app-mergeDebugResources-41:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-4\\767eb3ea200b935444bccf9aeb090dcf\\transformed\\appcompat-1.7.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "/Users/dfgh/.gradle/caches/transforms-4/767eb3ea200b935444bccf9aeb090dcf/transformed/appcompat-1.7.0/res/values-watch-v21/values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

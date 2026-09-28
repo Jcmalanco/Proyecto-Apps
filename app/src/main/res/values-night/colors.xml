@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_primary">#121212</color>
+    <color name="background_secondary">#1E1E1E</color>
+    <color name="surface_card">#1E1E1E</color>
+    <color name="surface_input">#2C2C2C</color>
+
+    <color name="accent_red">#E63950</color>
+    <color name="accent_red_dark">#C22C40</color>
+
+    <color name="text_primary">#F4F4F7</color>
+    <color name="text_secondary">#A0A0AB</color>
+    <color name="text_hint">#6C6C76</color>
+
+    <color name="divider">#2C2C2C</color>
+    <color name="chip_unselected">#2C2C2C</color>
+    <color name="star_gold">#FFD700</color>
+    <color name="overlay_dark">#CC000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="bottom_nav_bg">#1E1E1E</color>
+</resources>

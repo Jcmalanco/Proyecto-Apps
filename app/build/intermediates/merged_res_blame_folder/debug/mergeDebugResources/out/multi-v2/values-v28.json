@@ -4,7 +4,7 @@
             "outputFile": "com.attor.app-mergeDebugResources-41:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-4\\8ca4b9040ec619acdbf5a2edd82adc37\\transformed\\material-1.12.0\\res\\values-v28\\values-v28.xml",
+                    "source": "/Users/dfgh/.gradle/caches/transforms-4/8ca4b9040ec619acdbf5a2edd82adc37/transformed/material-1.12.0/res/values-v28/values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-4\\767eb3ea200b935444bccf9aeb090dcf\\transformed\\appcompat-1.7.0\\res\\values-v28\\values-v28.xml",
+                    "source": "/Users/dfgh/.gradle/caches/transforms-4/767eb3ea200b935444bccf9aeb090dcf/transformed/appcompat-1.7.0/res/values-v28/values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

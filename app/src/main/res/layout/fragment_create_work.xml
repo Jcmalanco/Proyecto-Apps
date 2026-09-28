@@ -116,9 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Aventura"
-                android:textColor="@color/white"
-                app:chipBackgroundColor="@color/accent_red" />
+                android:text="Aventura" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/genreFantasia"
@@ -126,27 +124,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Fantasía"
-                android:textColor="@color/white"
-                app:chipBackgroundColor="@color/accent_red" />
+                android:text="Fantasía" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/genreArte"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Arte"
-                android:textColor="@color/text_secondary"
-                app:chipBackgroundColor="@color/chip_unselected" />
+                android:text="Arte" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/genreTerror"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Terror"
-                android:textColor="@color/text_secondary"
-                app:chipBackgroundColor="@color/chip_unselected" />
+                android:text="Terror" />
         </com.google.android.material.chip.ChipGroup>
 
         <TextView

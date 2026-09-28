@@ -28,6 +28,9 @@ public final class ActivityWorkDetailsBinding implements ViewBinding {
   public final ImageButton btnBack;
 
   @NonNull
+  public final ImageButton btnLike;
+
+  @NonNull
   public final Button btnStartReading;
 
   @NonNull
@@ -64,14 +67,16 @@ public final class ActivityWorkDetailsBinding implements ViewBinding {
   public final TextView txtWorkTitle;
 
   private ActivityWorkDetailsBinding(@NonNull NestedScrollView rootView,
-      @NonNull ImageButton btnBack, @NonNull Button btnStartReading, @NonNull View dividerTabs,
-      @NonNull ImageView imgCoverLarge, @NonNull LinearLayout layoutAuthorRow,
-      @NonNull RecyclerView rvChapters, @NonNull TextView txtAuthorName,
-      @NonNull TextView txtIndexTitle, @NonNull TextView txtSynopsisBody,
-      @NonNull TextView txtSynopsisTitle, @NonNull TextView txtWorkRating,
-      @NonNull TextView txtWorkStatus, @NonNull TextView txtWorkTitle) {
+      @NonNull ImageButton btnBack, @NonNull ImageButton btnLike, @NonNull Button btnStartReading,
+      @NonNull View dividerTabs, @NonNull ImageView imgCoverLarge,
+      @NonNull LinearLayout layoutAuthorRow, @NonNull RecyclerView rvChapters,
+      @NonNull TextView txtAuthorName, @NonNull TextView txtIndexTitle,
+      @NonNull TextView txtSynopsisBody, @NonNull TextView txtSynopsisTitle,
+      @NonNull TextView txtWorkRating, @NonNull TextView txtWorkStatus,
+      @NonNull TextView txtWorkTitle) {
     this.rootView = rootView;
     this.btnBack = btnBack;
+    this.btnLike = btnLike;
     this.btnStartReading = btnStartReading;
     this.dividerTabs = dividerTabs;
     this.imgCoverLarge = imgCoverLarge;
@@ -116,6 +121,12 @@ public final class ActivityWorkDetailsBinding implements ViewBinding {
       id = R.id.btnBack;
       ImageButton btnBack = ViewBindings.findChildViewById(rootView, id);
       if (btnBack == null) {
+        break missingId;
+      }
+
+      id = R.id.btnLike;
+      ImageButton btnLike = ViewBindings.findChildViewById(rootView, id);
+      if (btnLike == null) {
         break missingId;
       }
 
@@ -191,9 +202,10 @@ public final class ActivityWorkDetailsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityWorkDetailsBinding((NestedScrollView) rootView, btnBack, btnStartReading,
-          dividerTabs, imgCoverLarge, layoutAuthorRow, rvChapters, txtAuthorName, txtIndexTitle,
-          txtSynopsisBody, txtSynopsisTitle, txtWorkRating, txtWorkStatus, txtWorkTitle);
+      return new ActivityWorkDetailsBinding((NestedScrollView) rootView, btnBack, btnLike,
+          btnStartReading, dividerTabs, imgCoverLarge, layoutAuthorRow, rvChapters, txtAuthorName,
+          txtIndexTitle, txtSynopsisBody, txtSynopsisTitle, txtWorkRating, txtWorkStatus,
+          txtWorkTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

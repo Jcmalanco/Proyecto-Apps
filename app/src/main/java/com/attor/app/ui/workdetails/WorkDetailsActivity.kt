@@ -30,6 +30,27 @@ class WorkDetailsActivity : BaseActivity() {
         val workId = intent.getStringExtra(EXTRA_WORK_ID)
         binding.btnBack.setOnClickListener { finish() }
 
+        val prefs = getSharedPreferences("attor_likes", Context.MODE_PRIVATE)
+        var isLiked = workId != null && prefs.getBoolean("liked_$workId", false)
+
+        fun updateLikeIcon() {
+            binding.btnLike.setImageResource(
+                if (isLiked) com.attor.app.R.drawable.ic_star_filled else com.attor.app.R.drawable.ic_star_outline
+            )
+            androidx.core.widget.ImageViewCompat.setImageTintList(binding.btnLike, null)
+        }
+        updateLikeIcon()
+
+        binding.btnLike.setOnClickListener {
+            if (workId != null) {
+                isLiked = !isLiked
+                prefs.edit().putBoolean("liked_$workId", isLiked).apply()
+                updateLikeIcon()
+                val msg = if (isLiked) "¡Obra marcada con estrella!" else "Estrella removida"
+                Toast.makeText(this@WorkDetailsActivity, msg, Toast.LENGTH_SHORT).show()
+            }
+        }
+
         lifecycleScope.launch {
             val repository = WorkRepository(this@WorkDetailsActivity)
             val work = workId?.let { repository.getById(it) } ?: repository.getAll().firstOrNull()
