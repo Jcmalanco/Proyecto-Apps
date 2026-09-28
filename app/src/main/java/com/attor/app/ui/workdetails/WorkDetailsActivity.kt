@@ -22,6 +22,7 @@ import kotlinx.coroutines.launch
 class WorkDetailsActivity : BaseActivity() {
 
     private lateinit var binding: ActivityWorkDetailsBinding
+    private var currentRating = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,13 +41,20 @@ class WorkDetailsActivity : BaseActivity() {
             )
             androidx.core.widget.ImageViewCompat.setImageTintList(binding.btnLike, null)
         }
-        updateLikeIcon()
+
+        fun updateRatingDisplay() {
+            binding.txtWorkRating.text = getString(
+                com.attor.app.R.string.rating_format, currentRating
+            )
+        }
 
         binding.btnLike.setOnClickListener {
             if (workId != null) {
                 isLiked = !isLiked
                 prefs.edit { putBoolean("liked_$workId", isLiked) }
+                currentRating += if (isLiked) 1f else -1f
                 updateLikeIcon()
+                updateRatingDisplay()
                 val msg = if (isLiked) "¡Obra marcada con estrella!" else "Estrella removida"
                 Toast.makeText(this@WorkDetailsActivity, msg, Toast.LENGTH_SHORT).show()
             }
@@ -83,7 +91,8 @@ class WorkDetailsActivity : BaseActivity() {
             com.attor.app.R.string.work_status_format, work.format.displayName, work.statusLabel
         )
         binding.txtAuthorName.text = work.author
-        binding.txtWorkRating.text = getString(com.attor.app.R.string.rating_format, work.rating)
+        currentRating = work.rating
+        binding.txtWorkRating.text = getString(com.attor.app.R.string.rating_format, currentRating)
         binding.txtSynopsisBody.text = SampleData.synopsisFor(work)
     }
 

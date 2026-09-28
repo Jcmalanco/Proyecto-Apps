@@ -52,6 +52,11 @@ class LoginActivity : BaseActivity() {
             return
         }
 
+        if (!email.contains("@")) {
+            Toast.makeText(this, "El correo debe contener al menos una @", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         // Prototipo: no hay backend, solo simulamos un login exitoso.
         val userName = email.substringBefore("@").replaceFirstChar { it.uppercase() }
         session.login(userName, email)

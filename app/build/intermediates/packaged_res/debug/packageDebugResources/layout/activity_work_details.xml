@@ -41,8 +41,7 @@
             android:background="@drawable/bg_button_outline"
             android:contentDescription="@null"
             android:padding="8dp"
-            android:src="@android:drawable/ic_menu_close_clear_cancel"
-            app:tint="@color/white"
+            android:src="@drawable/ic_arrow_back"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -55,7 +54,7 @@
             android:background="@drawable/bg_button_outline"
             android:contentDescription="Dar estrella"
             android:padding="8dp"
-            android:src="@android:drawable/btn_star_big_off"
+            android:src="@drawable/ic_star_outline"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

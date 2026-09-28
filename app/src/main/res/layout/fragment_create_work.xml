@@ -43,8 +43,7 @@
                 android:layout_height="28dp"
                 android:layout_gravity="center"
                 android:contentDescription="@null"
-                android:src="@android:drawable/ic_menu_gallery"
-                app:tint="@color/white" />
+                android:src="@drawable/ic_gallery" />
         </FrameLayout>
 
         <EditText

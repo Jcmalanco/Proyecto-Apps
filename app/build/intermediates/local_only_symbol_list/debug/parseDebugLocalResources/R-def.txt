@@ -31,11 +31,14 @@ drawable bg_chip_unselected
 drawable bg_gradient_overlay
 drawable bg_input_field
 drawable bg_placeholder_cover
+drawable ic_arrow_back
+drawable ic_gallery
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_placeholder_mark
 drawable ic_star_filled
 drawable ic_star_outline
+drawable ic_user
 drawable placeholder_cover
 id bottomNav
 id btnApple

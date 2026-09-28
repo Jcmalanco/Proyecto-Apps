@@ -3030,6 +3030,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_arrow_back
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3039,6 +3040,7 @@ drawable ic_call_decline
 drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_gallery
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3053,6 +3055,7 @@ drawable ic_placeholder_mark
 drawable ic_search_black_24
 drawable ic_star_filled
 drawable ic_star_outline
+drawable ic_user
 drawable indeterminate_static
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
