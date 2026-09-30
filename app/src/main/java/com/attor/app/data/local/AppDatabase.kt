@@ -5,12 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.attor.app.data.User
 import com.attor.app.data.Work
 
-@Database(entities = [Work::class], version = 1, exportSchema = false)
+@Database(entities = [Work::class, User::class], version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun workDao(): WorkDao
+    abstract fun userDao(): UserDao
 
     companion object {
         @Volatile
@@ -22,7 +24,8 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "attor_database"
-                ).build()
+                ).fallbackToDestructiveMigration()
+                .build()
                 INSTANCE = instance
                 instance
             }
