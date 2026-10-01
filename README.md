@@ -1,57 +1,50 @@
-# ATTOR
+# Attor — Versión completa (Kotlin + Room)
 
-Plataforma editorial que reúne distintos formatos de narrativa — novelas,
-mangas, manhuas, cómics, libros, canciones, podcast y arte — en un solo
-lugar, pensada tanto para lectores como para autores independientes.
+App de lectura y creación de novelas, mangas, manhuas, cómics, libros,
+canciones, podcast y arte, con 2 roles (Invitado / Usuario), persistencia
+local con Room, perfil de usuario, configuración de tema/tamaño de letra,
+carruseles por categoría y animaciones.
 
-## Descripción
+## Cómo abrirlo
+1. Android Studio → **Open** → selecciona la carpeta `AttorApp`.
+2. Espera a que Gradle sincronice (descarga Room, coroutines, Material, etc.).
+3. Ejecuta el módulo `app` en un emulador (API 24+).
 
-Hoy en día, seguir una historia significa saltar entre varias apps distintas
-según el formato: una para novelas, otra para cómics, otra para música o
-podcast. Attor resuelve esto reuniendo los 8 formatos en una sola
-aplicación, con un solo perfil y una sola biblioteca.
+No hay backend: `SampleData.kt` siembra la base de datos Room la primera vez
+que se abre la app; desde ahí todo (incluido lo que publiques) vive en el
+dispositivo.
 
-La app tiene dos roles: **invitado**, que puede explorar y leer todo el
-catálogo sin necesidad de registrarse, y **usuario registrado**, que además
-puede publicar sus propias obras, guardar su biblioteca y recibir
-notificaciones de los autores que sigue.
+## Qué leer primero
+- **`CHANGELOG.md`** en esta misma carpeta: documenta cada cambio agregado en
+  esta versión, archivo por archivo, útil para la documentación del proyecto.
 
-## Características
-
-- Modo invitado: leer sin necesidad de crear una cuenta.
-- Publicación de obras propias en 8 formatos distintos, con portada, género e idioma.
-- Descubrimiento de contenido por categorías, organizado en carruseles.
-- Biblioteca personal y notificaciones (exclusivo de usuarios registrados).
-- Perfil de usuario con configuración de tema claro/oscuro y tamaño de letra.
-- Persistencia local de datos: lo que se publica o configura no se pierde al cerrar la app.
-
-## Tecnologías utilizadas
-
-- **Lenguaje:** Kotlin
-- **Entorno:** Android Studio (Gradle 8.5.0 + Android Gradle Plugin 8.5.0)
-- **Base de datos local:** Room, con KSP para la generación de código
-- **Interfaz:** Material Components, ConstraintLayout, RecyclerView, CardView
-- **Asincronía:** Kotlin Coroutines
-- **Persistencia de sesión y configuración:** SharedPreferences
-
-## Requisitos
-
-Antes de ejecutar el proyecto necesitas:
-
-- Android Studio (versión reciente)
-- JDK 17
-- Un emulador o dispositivo Android con API 24 (Android 7.0) o superior
-- Conexión a internet la primera vez, para que Gradle descargue las dependencias
-
-## Instalación
-
-1. Clonar el repositorio:
-
-```bash
-https://github.com/Jcmalanco/Proyecto-Apps.git
+## Estructura del código
+```
+app/src/main/java/com/attor/app/
+├── AttorApplication.kt        -> aplica el tema guardado al iniciar
+├── data/
+│   ├── Models.kt               -> Work (entidad Room), Chapter, NotificationItem
+│   ├── SessionManager.kt       -> sesión (invitado/usuario), persiste sola
+│   ├── SettingsManager.kt      -> tema + tamaño de letra
+│   ├── WorkRepository.kt       -> capa de acceso a datos (CRUD)
+│   └── local/                  -> Room: AppDatabase, WorkDao, Converters
+├── util/                        -> adaptadores, SampleData, GridSpacingItemDecoration
+└── ui/
+    ├── common/BaseActivity.kt  -> aplica tamaño de letra a toda Activity
+    ├── login/LoginActivity.kt
+    ├── main/MainActivity.kt    -> bottom nav (colores invertidos al seleccionar)
+    ├── home/HomeFragment.kt    -> carruseles por categoría + Ver todo
+    ├── search/SearchFragment.kt
+    ├── library/LibraryFragment.kt
+    ├── notifications/NotificationsFragment.kt
+    ├── create/CreateWorkFragment.kt  -> ahora guarda en Room de verdad
+    ├── workdetails/WorkDetailsActivity.kt
+    ├── profile/ProfileActivity.kt    -> NUEVO
+    ├── settings/SettingsActivity.kt  -> NUEVO
+    └── seeall/SeeAllActivity.kt      -> NUEVO
 ```
 
-2. Abrir el proyecto en Android Studio: `File → Open` y seleccionar la
-   carpeta clonada.
-3. Esperar a que Gradle sincronice automáticamente.
-4. Ejecutar el módulo `app` en un emulador o dispositivo físico.
+## Siguientes pasos sugeridos
+- Conectar a un backend real (Retrofit/Firebase) en vez de solo Room local.
+- Selector de imagen real para portadas (ahora mismo todo usa `placeholder_cover`).
+- Pantalla de lector real al tocar "Empezar a Leer" o un capítulo.

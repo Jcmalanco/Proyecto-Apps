@@ -83,6 +83,8 @@ class HomeFragment : Fragment() {
                 inflater, binding.layoutCategorySections, false
             )
             sectionBinding.txtSectionTitle.text = format.displayName
+            sectionBinding.txtSeeAll.contentDescription =
+                getString(R.string.cd_see_all, format.displayName)
 
             val adapter = WorkAdapter(::openDetails)
             sectionBinding.rvSection.layoutManager =

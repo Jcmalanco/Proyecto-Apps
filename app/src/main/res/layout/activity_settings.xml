@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="@dimen/spacing_lg"
     android:background="@color/background_primary">
 
     <TextView
@@ -13,7 +13,7 @@
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="@dimen/spacing_lg" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switchDarkMode"

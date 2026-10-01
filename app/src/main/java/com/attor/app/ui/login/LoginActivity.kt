@@ -81,12 +81,12 @@ class LoginActivity : BaseActivity() {
         val password = binding.etPassword.text.toString().trim()
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Ingresa correo y contraseña", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Por favor, ingresa tu correo y contraseña", Toast.LENGTH_LONG).show()
             return
         }
 
         if (!email.contains("@")) {
-            Toast.makeText(this, "El correo debe contener al menos una @", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "El correo debe contener al menos una @", Toast.LENGTH_LONG).show()
             return
         }
 
@@ -96,7 +96,7 @@ class LoginActivity : BaseActivity() {
                 session.login(user.name, user.email)
                 goToMain()
             } else {
-                Toast.makeText(this@LoginActivity, "Credenciales incorrectas", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity, "Email o contraseña incorrectos. Verifica tus credenciales.", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -106,17 +106,17 @@ class LoginActivity : BaseActivity() {
         val password = binding.etPassword.text.toString().trim()
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Ingresa correo y contraseña", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Por favor, ingresa tu correo y contraseña", Toast.LENGTH_LONG).show()
             return
         }
 
         if (!email.contains("@")) {
-            Toast.makeText(this, "El correo debe contener al menos una @", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "El correo debe contener al menos una @", Toast.LENGTH_LONG).show()
             return
         }
 
         if (password.length < 6) {
-            Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_LONG).show()
             return
         }
 
@@ -126,10 +126,10 @@ class LoginActivity : BaseActivity() {
             val success = userRepository.register(name, email, password)
             if (success) {
                 session.login(name, email)
-                Toast.makeText(this@LoginActivity, "¡Cuenta creada!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity, "¡Cuenta creada con éxito!", Toast.LENGTH_LONG).show()
                 goToMain()
             } else {
-                Toast.makeText(this@LoginActivity, "Este correo ya está registrado", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity, "Este correo ya está registrado. Intenta con otro o inicia sesión.", Toast.LENGTH_LONG).show()
             }
         }
     }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing para tablets -->
+    <dimen name="spacing_md">20dp</dimen>
+    <dimen name="spacing_lg">32dp</dimen>
+    <dimen name="spacing_xl">48dp</dimen>
+
+    <!-- Text sizes para tablets -->
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xlarge">24sp</dimen>
+    <dimen name="text_size_xxlarge">32sp</dimen>
+
+    <!-- Avatar sizes para tablets -->
+    <dimen name="avatar_size_small">56dp</dimen>
+    <dimen name="avatar_size_medium">80dp</dimen>
+    <dimen name="avatar_size_large">120dp</dimen>
+
+    <!-- Cover heights para tablets -->
+    <dimen name="cover_height_portrait">400dp</dimen>
+    <dimen name="cover_height_landscape">220dp</dimen>
+
+    <!-- Grid para tablets -->
+    <dimen name="grid_column_width">180dp</dimen>
+    <dimen name="grid_spacing">16dp</dimen>
+</resources>

@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
+        android:paddingHorizontal="@dimen/spacing_md"
         android:gravity="center_vertical"
-        android:paddingBottom="8dp">
+        android:paddingBottom="@dimen/spacing_sm">
 
         <TextView
             android:id="@+id/txtSectionTitle"
@@ -32,7 +32,8 @@
             android:textColor="@color/accent_red"
             android:clickable="true"
             android:focusable="true"
-            android:padding="4dp" />
+            android:padding="@dimen/spacing_xs"
+            android:contentDescription="@string/cd_see_all" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -40,14 +41,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
-        android:paddingHorizontal="12dp" />
+        android:paddingHorizontal="@dimen/spacing_sm" />
 
     <TextView
         android:id="@+id/txtSectionEmpty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="16dp"
+        android:padding="@dimen/spacing_md"
         android:text="No hay obras en esta categoría"
         android:textColor="@color/text_hint"
         android:visibility="gone" />

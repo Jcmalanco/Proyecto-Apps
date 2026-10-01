@@ -161,6 +161,8 @@ class WorkDetailsActivity : BaseActivity() {
         currentRating = work.rating
         binding.txtWorkRating.text = getString(R.string.rating_format, currentRating)
         binding.txtSynopsisBody.text = SampleData.synopsisFor(work)
+        binding.imgCoverLarge.contentDescription =
+            getString(com.attor.app.R.string.cd_cover, work.title)
     }
 
     companion object {

@@ -3,6 +3,7 @@ package com.attor.app.util
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.attor.app.R
 import com.attor.app.data.Chapter
 import com.attor.app.databinding.ItemChapterBinding
 
@@ -27,6 +28,8 @@ class ChapterAdapter(
         fun bind(chapter: Chapter) {
             binding.txtChapterTitle.text = chapter.title
             binding.txtChapterDate.text = chapter.dateLabel
+            binding.root.contentDescription =
+                binding.root.context.getString(R.string.cd_chapter_item, chapter.title)
             binding.root.setOnClickListener { onClick(chapter) }
         }
     }
