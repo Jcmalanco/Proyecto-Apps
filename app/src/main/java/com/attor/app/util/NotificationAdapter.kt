@@ -7,7 +7,7 @@ import com.attor.app.data.NotificationItem
 import com.attor.app.databinding.ItemNotificationBinding
 
 class NotificationAdapter(
-    private val items: List<NotificationItem>
+    private val items: MutableList<NotificationItem>
 ) : RecyclerView.Adapter<NotificationAdapter.NotificationViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationViewHolder {
@@ -20,6 +20,21 @@ class NotificationAdapter(
     }
 
     override fun getItemCount(): Int = items.size
+
+    /** Reemplaza la lista completa de notificaciones (al cargar desde Room). */
+    fun updateItems(messages: List<String>) {
+        items.clear()
+        items.addAll(messages.map { NotificationItem(id = it.hashCode().toString(), message = it) })
+        notifyDataSetChanged()
+    }
+
+    /** Elimina una notificación por su posición y notifica al RecyclerView. */
+    fun removeItem(position: Int) {
+        if (position in items.indices) {
+            items.removeAt(position)
+            notifyItemRemoved(position)
+        }
+    }
 
     inner class NotificationViewHolder(private val binding: ItemNotificationBinding) :
         RecyclerView.ViewHolder(binding.root) {

@@ -19,6 +19,14 @@ class WorkRepository(context: Context) {
         dao.insertWork(work)
     }
 
+    suspend fun getWorksByOwner(ownerName: String): List<Work> {
+        return dao.getWorksByOwner(ownerName)
+    }
+
+    suspend fun deleteById(id: String) {
+        dao.deleteById(id)
+    }
+
     suspend fun seedIfEmpty() {
         if (dao.getCount() == 0) {
             dao.insertWorks(SampleData.allWorks())

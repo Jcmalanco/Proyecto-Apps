@@ -31,6 +31,11 @@
             android:parentActivityName=".ui.main.MainActivity" />
 
         <activity
+            android:name=".ui.reader.ReaderActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.workdetails.WorkDetailsActivity" />
+
+        <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="false"
             android:parentActivityName=".ui.main.MainActivity" />

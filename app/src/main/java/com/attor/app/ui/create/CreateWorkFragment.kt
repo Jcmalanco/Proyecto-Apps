@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.attor.app.R
+import com.attor.app.data.NotificationRepository
 import com.attor.app.data.SessionManager
 import com.attor.app.data.Work
 import com.attor.app.data.WorkFormat
@@ -37,6 +38,7 @@ class CreateWorkFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var repository: WorkRepository
+    private lateinit var notificationRepository: NotificationRepository
     private lateinit var session: SessionManager
 
     private var selectedFormat: WorkFormat = WorkFormat.NOVEL
@@ -55,6 +57,7 @@ class CreateWorkFragment : Fragment() {
 
         session = SessionManager(requireContext())
         repository = WorkRepository(requireContext())
+        notificationRepository = NotificationRepository(requireContext())
 
         if (session.isGuest()) {
             showGuestLockedDialog()
@@ -188,6 +191,7 @@ class CreateWorkFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repository.publish(work)
+            notificationRepository.add("${session.getUserName()} publicó una nueva obra: \"$title\"")
             showPublishSuccess(title)
             clearForm()
         }

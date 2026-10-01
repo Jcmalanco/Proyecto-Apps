@@ -22,4 +22,10 @@ interface WorkDao {
 
     @Query("SELECT COUNT(*) FROM works")
     suspend fun getCount(): Int
+
+    @Query("SELECT * FROM works WHERE ownerName = :ownerName ORDER BY title ASC")
+    suspend fun getWorksByOwner(ownerName: String): List<Work>
+
+    @Query("DELETE FROM works WHERE id = :id")
+    suspend fun deleteById(id: String)
 }
