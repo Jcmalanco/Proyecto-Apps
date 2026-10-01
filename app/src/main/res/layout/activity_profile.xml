@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="@dimen/spacing_lg"
     android:gravity="center_horizontal"
     android:background="@color/background_primary">
 
@@ -11,8 +11,9 @@
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:src="@drawable/ic_placeholder_mark"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/bg_card_rounded" />
+        android:layout_marginTop="@dimen/spacing_xl"
+        android:background="@drawable/bg_card_rounded"
+        android:contentDescription="@string/cd_avatar" />
 
     <TextView
         android:id="@+id/txtName"
@@ -22,7 +23,7 @@
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="@dimen/spacing_md" />
 
     <TextView
         android:id="@+id/txtEmail"
@@ -38,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Configuración"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="@dimen/spacing_xl"
         android:backgroundTint="@color/accent_red" />
 
     <Button
@@ -46,7 +47,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cerrar Sesión"
-        android:layout_marginTop="12dp"
-        style="@style/Widget.Material3.Button.OutlinedButton" />
+        android:textSize="16sp"
+        android:textColor="@color/accent_red"
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:background="@drawable/bg_button_outline_red"
+        android:paddingVertical="@dimen/spacing_sm" />
 
 </LinearLayout>

@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
+    android:layout_marginBottom="@dimen/spacing_sm"
     android:background="@drawable/bg_card_rounded"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="12dp">
+    android:padding="@dimen/spacing_sm">
 
     <ImageView
         android:id="@+id/imgNotifAvatar"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:background="@drawable/bg_button_primary"
-        android:contentDescription="@null"
-        android:padding="10dp"
+        android:contentDescription="@string/cd_notification_avatar"
+        android:padding="@dimen/spacing_sm"
         android:src="@drawable/ic_user"
         app:tint="@color/white" />
 
@@ -23,7 +23,7 @@
         android:id="@+id/txtNotifMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="@dimen/spacing_sm"
         android:layout_weight="1"
         android:text="Yeli Soto subió un nuevo capítulo de El Herrero de Almas"
         android:textColor="@color/text_primary"

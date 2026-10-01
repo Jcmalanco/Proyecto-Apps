@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">16sp</dimen>
+    <dimen name="text_size_xlarge">20sp</dimen>
+    <dimen name="text_size_xxlarge">24sp</dimen>
+
+    <!-- Component dimensions -->
+    <dimen name="card_corner_radius">14dp</dimen>
+    <dimen name="button_corner_radius">28dp</dimen>
+    <dimen name="input_corner_radius">14dp</dimen>
+
+    <!-- Avatar sizes -->
+    <dimen name="avatar_size_small">42dp</dimen>
+    <dimen name="avatar_size_medium">64dp</dimen>
+    <dimen name="avatar_size_large">96dp</dimen>
+
+    <!-- Cover heights -->
+    <dimen name="cover_height_portrait">320dp</dimen>
+    <dimen name="cover_height_landscape">180dp</dimen>
+
+    <!-- Grid -->
+    <dimen name="grid_column_width">160dp</dimen>
+    <dimen name="grid_spacing">12dp</dimen>
+
+    <!-- Button heights -->
+    <dimen name="button_height_primary">52dp</dimen>
+    <dimen name="button_height_secondary">48dp</dimen>
+
+    <!-- Icon sizes -->
+    <dimen name="icon_size_small">18dp</dimen>
+    <dimen name="icon_size_medium">24dp</dimen>
+    <dimen name="icon_size_large">28dp</dimen>
+
+    <!-- Bottom navigation -->
+    <dimen name="bottom_nav_height">64dp</dimen>
+    <dimen name="bottom_nav_padding">6dp</dimen>
+</resources>

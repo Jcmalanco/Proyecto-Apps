@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing para landscape -->
+    <dimen name="spacing_md">12dp</dimen>
+    <dimen name="spacing_lg">16dp</dimen>
+
+    <!-- Cover heights para landscape -->
+    <dimen name="cover_height_portrait">180dp</dimen>
+    <dimen name="cover_height_landscape">180dp</dimen>
+
+    <!-- Grid para landscape -->
+    <dimen name="grid_column_width">140dp</dimen>
+    <dimen name="grid_spacing">8dp</dimen>
+</resources>

@@ -98,4 +98,20 @@
 
     <!-- Ver todo -->
     <string name="see_all_empty">No hay obras para mostrar todavía</string>
+
+    <!-- Accesibilidad -->
+    <string name="cd_back">Volver</string>
+    <string name="cd_like">Dar estrella</string>
+    <string name="cd_cover">Portada de %1$s</string>
+    <string name="cd_avatar">Foto de perfil</string>
+    <string name="cd_play_chapter">Reproducir capítulo</string>
+    <string name="cd_see_all">Ver todo de %1$s</string>
+    <string name="cd_search">Buscar</string>
+    <string name="cd_locked">Contenido bloqueado</string>
+    <string name="cd_google_login">Iniciar sesión con Google</string>
+    <string name="cd_apple_login">Iniciar sesión con Apple</string>
+    <string name="cd_app_logo">Logotipo de Attor</string>
+    <string name="cd_notification_avatar">Avatar del usuario</string>
+    <string name="cd_book_card">Obra: %1$s de %2$s</string>
+    <string name="cd_chapter_item">Capítulo: %1$s</string>
 </resources>

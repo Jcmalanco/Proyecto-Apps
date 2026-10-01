@@ -39,14 +39,17 @@ class WorkAdapter(
             binding.txtRating.text = binding.root.context.getString(R.string.rating_format, work.rating)
             binding.txtFormatBadge.text = work.format.displayName
 
-            // Si la obra no tiene portada propia, usamos la portada por defecto.
+            binding.imgCover.contentDescription =
+                binding.root.context.getString(R.string.cd_cover, work.title)
+
             if (work.coverUrl.isNullOrBlank()) {
                 binding.imgCover.setImageResource(R.drawable.placeholder_cover)
             } else {
-                // TODO: aquí se cargaría la imagen real cuando se integre Glide/Coil.
                 binding.imgCover.setImageResource(R.drawable.placeholder_cover)
             }
 
+            binding.root.contentDescription =
+                binding.root.context.getString(R.string.cd_book_card, work.title, work.author)
             binding.root.setOnClickListener { onClick(work) }
         }
     }
