@@ -1,15 +1,19 @@
 package com.attor.app.ui.create
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -31,6 +35,7 @@ import java.util.UUID
  * Pantalla de creación de obra. EXCLUSIVA para el rol USUARIO.
  * Ahora guarda de verdad en la base de datos local (Room) a través de
  * WorkRepository, así que lo publicado aparece luego en Home/Búsqueda/Perfil.
+ * Incluye selector de imagen para la portada.
  */
 class CreateWorkFragment : Fragment() {
 
@@ -44,6 +49,25 @@ class CreateWorkFragment : Fragment() {
     private var selectedFormat: WorkFormat = WorkFormat.NOVEL
     private val maxGenres = 3
     private val formatChips = mutableMapOf<TextView, WorkFormat>()
+    private var selectedCoverUri: Uri? = null
+
+    private val pickImageLauncher = registerForActivityResult(
+        ActivityResultContracts.PickVisualMedia()
+    ) { uri: Uri? ->
+        uri?.let {
+            selectedCoverUri = it
+            // Tomar permiso persistente para la URI
+            requireContext().contentResolver.takePersistableUriPermission(
+                it,
+                Intent.FLAG_GRANT_READ_URI_PERMISSION
+            )
+            // Mostrar la imagen seleccionada
+            binding.imgCoverPreview.setImageURI(it)
+            binding.imgCoverPreview.scaleType = ImageView.ScaleType.CENTER_CROP
+            // Ocultar el ícono de galería
+            binding.imgGalleryIcon.visibility = View.GONE
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -69,7 +93,9 @@ class CreateWorkFragment : Fragment() {
         setupLanguageSpinner()
 
         binding.btnPickCover.setOnClickListener {
-            Toast.makeText(requireContext(), "Selector de imagen (prototipo)", Toast.LENGTH_SHORT).show()
+            pickImageLauncher.launch(
+                PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+            )
         }
 
         binding.btnPublish.setOnClickListener { attemptPublish() }
@@ -184,7 +210,7 @@ class CreateWorkFragment : Fragment() {
             format = selectedFormat,
             synopsis = synopsis,
             statusLabel = "Recién publicado",
-            coverUrl = null, // sin portada propia -> usa placeholder_cover automáticamente
+            coverUrl = selectedCoverUri?.toString(),
             isUserCreated = true,
             ownerName = session.getUserName()
         )
@@ -215,6 +241,8 @@ class CreateWorkFragment : Fragment() {
     private fun clearForm() {
         binding.etWorkTitle.text?.clear()
         binding.etWorkSynopsis.text?.clear()
+        selectedCoverUri = null
+        binding.imgCoverPreview.setImageResource(R.drawable.placeholder_cover)
     }
 
     override fun onDestroyView() {

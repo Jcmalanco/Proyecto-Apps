@@ -1,6 +1,7 @@
 package com.attor.app.ui.profile
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,7 +15,7 @@ import com.attor.app.data.SessionManager
 import com.attor.app.data.Work
 import com.attor.app.data.WorkRepository
 import com.attor.app.databinding.ActivityProfileBinding
-import com.attor.app.databinding.ItemBookCardBinding
+import com.attor.app.databinding.ItemUserWorkBinding
 import com.attor.app.ui.common.BaseActivity
 import com.attor.app.ui.login.LoginActivity
 import com.attor.app.ui.settings.SettingsActivity
@@ -112,7 +113,7 @@ class ProfileActivity : BaseActivity() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkViewHolder {
-            val binding = ItemBookCardBinding.inflate(
+            val binding = ItemUserWorkBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
             return WorkViewHolder(binding)
@@ -124,7 +125,7 @@ class ProfileActivity : BaseActivity() {
 
         override fun getItemCount(): Int = works.size
 
-        inner class WorkViewHolder(private val binding: ItemBookCardBinding) :
+        inner class WorkViewHolder(private val binding: ItemUserWorkBinding) :
             RecyclerView.ViewHolder(binding.root) {
 
             fun bind(work: Work) {
@@ -133,22 +134,37 @@ class ProfileActivity : BaseActivity() {
                 binding.txtRating.text = getString(R.string.rating_format, work.rating)
                 binding.txtFormatBadge.text = work.format.displayName
 
-                binding.root.setOnClickListener { onWorkClick(work) }
+                // Cargar imagen de portada
+                loadCoverImage(work.coverUrl)
 
-                // Agregar botón de eliminar dinámicamente
-                val btnDelete = com.google.android.material.button.MaterialButton(binding.root.context).apply {
-                    text = "Eliminar"
-                    textSize = 11f
-                    setBackgroundColor(getColor(R.color.accent_red))
-                    setTextColor(getColor(R.color.white))
-                    setOnClickListener { onDeleteClick(work) }
+                binding.root.setOnClickListener { onWorkClick(work) }
+                binding.btnDelete.setOnClickListener { onDeleteClick(work) }
+            }
+
+            private fun loadCoverImage(coverUrl: String?) {
+                if (coverUrl.isNullOrBlank()) {
+                    binding.imgCover.setImageResource(R.drawable.placeholder_cover)
+                    return
                 }
 
-                val params = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                )
-                (binding.root as ViewGroup).addView(btnDelete, params)
+                try {
+                    val uri = Uri.parse(coverUrl)
+                    val inputStream = binding.root.context.contentResolver.openInputStream(uri)
+                    if (inputStream != null) {
+                        val bitmap = android.graphics.BitmapFactory.decodeStream(inputStream)
+                        inputStream.close()
+                        if (bitmap != null) {
+                            binding.imgCover.setImageBitmap(bitmap)
+                        } else {
+                            binding.imgCover.setImageResource(R.drawable.placeholder_cover)
+                        }
+                    } else {
+                        binding.imgCover.setImageResource(R.drawable.placeholder_cover)
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    binding.imgCover.setImageResource(R.drawable.placeholder_cover)
+                }
             }
         }
     }

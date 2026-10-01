@@ -1,5 +1,6 @@
 package com.attor.app.util
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -42,15 +43,38 @@ class WorkAdapter(
             binding.imgCover.contentDescription =
                 binding.root.context.getString(R.string.cd_cover, work.title)
 
-            if (work.coverUrl.isNullOrBlank()) {
-                binding.imgCover.setImageResource(R.drawable.placeholder_cover)
-            } else {
-                binding.imgCover.setImageResource(R.drawable.placeholder_cover)
-            }
+            loadCoverImage(work.coverUrl)
 
             binding.root.contentDescription =
                 binding.root.context.getString(R.string.cd_book_card, work.title, work.author)
             binding.root.setOnClickListener { onClick(work) }
+        }
+
+        private fun loadCoverImage(coverUrl: String?) {
+            if (coverUrl.isNullOrBlank()) {
+                binding.imgCover.setImageResource(R.drawable.placeholder_cover)
+                return
+            }
+
+            try {
+                val uri = Uri.parse(coverUrl)
+                // Usar ContentResolver para abrir la imagen con permisos correctos
+                val inputStream = binding.root.context.contentResolver.openInputStream(uri)
+                if (inputStream != null) {
+                    val bitmap = android.graphics.BitmapFactory.decodeStream(inputStream)
+                    inputStream.close()
+                    if (bitmap != null) {
+                        binding.imgCover.setImageBitmap(bitmap)
+                    } else {
+                        binding.imgCover.setImageResource(R.drawable.placeholder_cover)
+                    }
+                } else {
+                    binding.imgCover.setImageResource(R.drawable.placeholder_cover)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                binding.imgCover.setImageResource(R.drawable.placeholder_cover)
+            }
         }
     }
 
