@@ -89,11 +89,11 @@ class WorkDetailsActivity : BaseActivity() {
             isOwner = work.ownerName == session.getUserName()
 
             // Mostrar botón de agregar capítulo solo si es el dueño
-            binding.btnAddChapter.visibility = if (isOwner) android.view.View.VISIBLE else android.view.View.GONE
+            binding.btnAddChapter?.visibility = if (isOwner) android.view.View.VISIBLE else android.view.View.GONE
 
             loadChapters(work.id)
 
-            binding.btnAddChapter.setOnClickListener {
+            binding.btnAddChapter?.setOnClickListener {
                 showAddChapterDialog(work.id)
             }
 
@@ -162,7 +162,7 @@ class WorkDetailsActivity : BaseActivity() {
         binding.txtWorkRating.text = getString(R.string.rating_format, currentRating)
         binding.txtSynopsisBody.text = SampleData.synopsisFor(work)
         binding.imgCoverLarge.contentDescription =
-            getString(com.attor.app.R.string.cd_cover, work.title)
+            String.format(getString(com.attor.app.R.string.cd_cover), work.title)
     }
 
     companion object {
