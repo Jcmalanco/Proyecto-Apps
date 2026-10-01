@@ -48,7 +48,7 @@ Antes de ejecutar el proyecto necesitas:
 1. Clonar el repositorio:
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+[git clone URL_DEL_REPOSITORIO](https://github.com/Jcmalanco/Proyecto-Apps.git)
 ```
 
 2. Abrir el proyecto en Android Studio: `File → Open` y seleccionar la
