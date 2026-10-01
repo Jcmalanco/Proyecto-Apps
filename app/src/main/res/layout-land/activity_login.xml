@@ -16,15 +16,13 @@
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgLogo"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@drawable/bg_button_primary"
             android:contentDescription="@string/cd_app_logo"
-            android:padding="12dp"
-            android:src="@android:drawable/ic_menu_edit"
-            app:tint="@color/white"
+            android:src="@drawable/logo_oficial"
+            app:shapeAppearanceOverlay="@style/RoundedImageView"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
