@@ -52,6 +52,7 @@
             android:textColor="@color/text_primary"
             android:textColorHint="@color/text_hint"
             android:textSize="15sp"
+            android:contentDescription="@string/login_email_hint"
             app:layout_constraintTop_toBottomOf="@id/txtAppName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -68,6 +69,7 @@
             android:textColor="@color/text_primary"
             android:textColorHint="@color/text_hint"
             android:textSize="15sp"
+            android:contentDescription="@string/login_password_hint"
             app:layout_constraintTop_toBottomOf="@id/etEmail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
