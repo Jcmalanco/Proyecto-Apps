@@ -5,6 +5,8 @@ canciones, podcast y arte, con 2 roles (Invitado / Usuario), persistencia
 local con Room, perfil de usuario, configuración de tema/tamaño de letra,
 carruseles por categoría y animaciones.
 
+[Landing Page](https://isabelkyrom.github.io/Attor_landing_page)
+
 ## Cómo abrirlo
 1. Android Studio → **Open** → selecciona la carpeta `AttorApp`.
 2. Espera a que Gradle sincronice (descarga Room, coroutines, Material, etc.).
